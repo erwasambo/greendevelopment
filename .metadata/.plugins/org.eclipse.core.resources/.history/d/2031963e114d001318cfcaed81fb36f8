@@ -1,0 +1,207 @@
+package com.green.development;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+public class UserConfigActivity extends Activity{
+	
+	private DataBaseManager DatabaseHelpers;
+	private String table1 = "surveys";
+	private String table2 = "Area";
+	
+	//SQLiteDatabase myDataBase;
+	
+	Button saveconfig;
+	EditText organisation;
+	EditText person;
+	Spinner country;
+	Spinner area;
+
+	private ArrayList<String> countries = new ArrayList<String>();
+	private ArrayList<String> projectareas = new ArrayList<String>();
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.usercofig);
+		
+		DatabaseHelpers = DataBaseManager.instance();
+		
+		saveconfig = (Button)findViewById(R.id.btnSave);
+		organisation  = (EditText) findViewById(R.id.editTextorga);
+		person = (EditText) findViewById (R.id.editTextperson);
+		country = (Spinner) findViewById(R.id.countrySpinner);
+		area = (Spinner) findViewById(R.id.areaSpinner);
+		
+		
+		updateCountries();
+		updateAreas();
+		
+		ArrayAdapter<String> ctyadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, countries);
+		ctyadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		country.setAdapter(ctyadapter);
+		
+		ArrayAdapter<String> areaadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, projectareas);
+		areaadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		area.setAdapter(areaadapter);
+		
+		
+		country.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				String selection = country.getSelectedItem().toString();
+				
+				
+				if (selection=="All Countries"){
+					
+					giveAllAreas();
+					
+				}else{
+					
+					
+					giveSpecificAreas(selection);
+					
+					
+					
+					Cursor cursor = DatabaseHelpers.select("SELECT CDMProjectArea FROM Area");
+					
+					projectareas.add("All Areas");
+			        
+					if (cursor == null){
+			            cursor.close();
+			        }
+
+			        while (cursor.moveToNext()){
+			        	String s = cursor.getString(0);
+			        	projectareas.add(s);
+			       }
+
+			        cursor.close();
+					
+					
+				}
+				
+				
+			}
+		});
+		
+	}
+	
+	private void updateCountries() {
+		Cursor cursor = DatabaseHelpers.select("SELECT Country FROM Area");
+
+		countries.add("All Countries");
+		
+        if (cursor == null){
+            cursor.close();
+        }
+
+        while (cursor.moveToNext()){
+        	String s = cursor.getString(0);
+        	if (countries.contains(s)){
+        		//Do nothing
+        	}else{
+        		countries.add(s);
+        	}
+       }
+
+        cursor.close();
+		
+	}
+	
+
+	private void updateAreas() {
+		Cursor cursor = DatabaseHelpers.select("SELECT CDMProjectArea FROM Area");
+		
+		projectareas.add("All Areas");
+        
+		if (cursor == null){
+            cursor.close();
+        }
+
+        while (cursor.moveToNext()){
+        	String s = cursor.getString(0);
+        	projectareas.add(s);
+       }
+
+        cursor.close();
+		
+	}
+	
+	private ArrayList<String> giveAreasArray() {
+		
+		ArrayList<String> newareas = new ArrayList<String>();
+		
+		
+		Cursor cursor = DatabaseHelpers.select("SELECT CDMProjectArea FROM Area");
+		
+		newareas.add("All Areas");
+        
+		if (cursor == null){
+            cursor.close();
+        }
+
+        while (cursor.moveToNext()){
+        	String s = cursor.getString(0);
+        	newareas.add(s);
+       }
+
+        cursor.close();
+        
+       
+		return newareas;
+		
+	}
+	private void giveAllAreas() {
+		ArrayList<String> newareas = giveAreasArray();
+		ArrayAdapter<String> areaadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, newareas);
+		areaadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		area.setAdapter(areaadapter);
+
+	}
+	
+	
+	private ArrayList<String> giveAreasofaCountry(String country) {
+		
+		ArrayList<String> newareas = new ArrayList<String>();
+		
+		
+		Cursor cursor = DatabaseHelpers.select("SELECT CDMProjectArea FROM Area WHERE Country = "+country);
+		
+		newareas.add("All Areas");
+        
+		if (cursor == null){
+            cursor.close();
+        }
+
+        while (cursor.moveToNext()){
+        	String s = cursor.getString(0);
+        	newareas.add(s);
+       }
+
+        cursor.close();
+        
+       
+		return newareas;
+		
+	}
+	private void giveSpecificAreas(String country) {
+		ArrayList<String> newareas = giveAreasofaCountry(country);
+		ArrayAdapter<String> areaadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, newareas);
+		areaadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		area.setAdapter(areaadapter);
+
+	}
+
+}

@@ -1,0 +1,51 @@
+package com.green.development;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+public class UserConfigActivity extends Activity{
+	
+	private DataBaseManager DatabaseHelpers;
+	private String table1 = "surveys";
+	private String table2 = "Area";
+	
+	//SQLiteDatabase myDataBase;
+	
+	Button saveconfig;
+	EditText organisation;
+	EditText person;
+	Spinner country;
+	Spinner area;
+	
+	ArrayList<String> countries = new ArrayList<String>();
+	ArrayList<String> projectareas = new ArrayList<String>();
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.usercofig);
+		
+		DatabaseHelpers = DataBaseManager.instance();
+		
+		saveconfig = (Button)findViewById(R.id.btnSave);
+		organisation  = (EditText) findViewById(R.id.editTextorga);
+		person = (EditText) findViewById (R.id.editTextperson);
+		country = (Spinner) findViewById(R.id.countrySpinner);
+		area = (Spinner) findViewById(R.id.areaSpinner);
+		
+		
+		updateCountries();
+		updateAreas();
+		
+		
+	}
+	
+	
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout  android:layout_width="match_parent"    android:layout_height="900dp" >
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/enduseragree"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/lvHeaderDividerColor" />
+
+	<TextView
+    android:id="@+id/textView2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_below="@+id/textView1"
+    android:text="@string/intro"
+    android:paddingLeft="@dimen/activity_horizontal_margin" 
+    android:paddingRight="@dimen/activity_horizontal_margin"/>  
+        
+    <View
+    android:id="@+id/item_separator"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/lvDividerHeight"
+    android:background="@color/lvHeaderDividerColor"
+    android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+    />
+
+    <TextView
+        android:textIsSelectable="false"
+        android:id="@+id/lv_list_hdr"
+        android:textColor="@color/lvHeaderTextColor"
+        android:gravity="bottom|left"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/item_separator"
+        android:layout_alignParentLeft="true"
+        style="@style/listViewHeaderItem"
+        />    
+        
+        
+        
+        
+    </RelativeLayout>
+
+</ScrollView>

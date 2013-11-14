@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.green.development"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="16" />
+    
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-feature android:name="android.hardware.camera" android:required="true" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_OWNER_DATA"/>
+	
+	<!-- Network State Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
+	
+    <application
+        android:name=".ApplicationContextProvider"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppBaseTheme" >
+        <activity
+            android:name=".SplashscreenActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+        </activity>
+        
+		<activity
+            android:name=".SecondActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.second" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+		
+		<activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.login" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      <activity
+            android:name=".RegisterAccActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.register" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+	  
+	<activity
+            android:name=".HomeActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.home" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      	<activity
+            android:name=".SurveyActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.survey" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      
+      	<activity
+            android:name=".SurveySuccessActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.surveysuccess" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      	
+	<activity
+            android:name=".CameraAppActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.camera_layout" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+     
+	
+      <activity
+            android:name=".SettingsActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.settings" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+	  
+	       <activity
+            android:name=".CheckMapActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.checkmap" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      <activity
+            android:name=".CheckweatherActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.checkweather" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      <activity
+            android:name=".MessagesActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.messages" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      <activity
+            android:name=".EmergencyActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.emergency" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      <activity
+            android:name=".MyaccountActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.myaccount" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+       <activity
+            android:name=".SailingActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.sailing" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+       <activity
+            android:name=".GPSActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.bgnsailing" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+       <activity
+            android:name=".EndSailActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.endsailing" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      
+       <activity
+            android:name=".TakePictureActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.takepicture" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+     <activity
+            android:name=".CaptureActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.capture_activity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      
+      <activity
+            android:name=".ManageSurveysActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.managesurveys" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+      
+     <activity
+            android:name=".UserConfigActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.green.development.usercofig" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+                       
+      </activity>
+     
+    </application>
+
+</manifest>

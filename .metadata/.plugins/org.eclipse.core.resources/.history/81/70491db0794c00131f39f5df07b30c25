@@ -1,0 +1,48 @@
+package com.green.development;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.ListActivity;
+import android.database.Cursor;
+import android.os.Bundle;
+
+public class ManageSurveysActivity extends ListActivity{
+
+	private DataBaseManager DatabaseHelper;
+	
+	List<String> names = new ArrayList<String>();
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.managesurveys);
+		
+	}
+
+	@Override
+	protected void onResume() {
+		
+		super.onResume();
+	}
+
+	
+	private void updateNames() {
+		Cursor cursor = DatabaseHelper.select("SELECT CDMProjectArea FROM Area");
+
+        if (cursor == null){
+            cursor.close();
+        }
+
+        while (cursor.moveToNext()){
+        	String s = cursor.getString(0);
+        	names.add(s);
+       }
+
+        cursor.close();
+		
+	}
+	
+	
+}

@@ -1,0 +1,74 @@
+package com.green.development;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.ListActivity;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+public class ManageSurveysActivity extends ListActivity{
+
+	private DataBaseManager DatabaseHelper;
+	
+	List<String> names = new ArrayList<String>();
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		//Create and open the database so we can use it
+		DatabaseHelper = DataBaseManager.instance();
+		
+		updateNames();
+		
+		this.setListAdapter(new ArrayAdapter<String>(this, R.layout.single_item,names));
+		
+		ListView myList = getListView();
+		myList.setClickable(true);
+		myList.setTextFilterEnabled(true);
+		myList.setFastScrollEnabled(true);
+		
+	}
+
+	@Override
+	protected void onListItemClick(ListView l, View v, int position, long id) {
+		
+		super.onListItemClick(l, v, position, id);
+		toString();
+		//String selectednameid = String.valueOf(position);
+		String selection  = names.get(position);
+		Toast.makeText(getBaseContext(), "You have clicked"+selection, Toast.LENGTH_LONG).show();
+	}
+	
+	
+	
+	@Override
+	protected void onResume() {
+		
+		super.onResume();
+	}
+
+	
+	private void updateNames() {
+		Cursor cursor = DatabaseHelper.select("SELECT Name FROM pendingsurveys");
+
+        if (cursor == null){
+            cursor.close();
+        }
+
+        while (cursor.moveToNext()){
+        	String s = cursor.getString(0);
+        	names.add(s);
+       }
+
+        cursor.close();
+		
+	}
+	
+	
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Green Development</string>
+    <string name="action_settings">Settings</string>
+	<string-array name="speed">
+        <item>12 Seconds</item>
+        <item>15 Seconds</item>
+        <item>18 Seconds</item>
+        <item>21 Seconds</item>
+        <item>30 Seconds</item>
+    </string-array>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_splashscreen">Green Development</string>
+    <string name="main">Green Development)</string>
+    <string name="capture">Capture</string>
+    <string name="Capture2">Capture</string>
+    <string name="Recapture">Recapture</string><string name="Upload">Save Gesture</string>
+    <string name="picture">Picture</string>
+    <string name="Exit">Exit</string>
+    <string name="settings">Settings</string>
+     <string name="save">Save</string>
+    <string name="space"></string>
+    <string name="learn">Learn Sign</string>
+    <string name="fullname">Full Name</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone Number</string>
+    <string name="agree">End User Agreement</string>
+    <string name="enduserinfo">End User Information</string>
+    <string name="next">Next</string>
+    <string name="equipsol">Equipment or solutions provided</string>
+    <string name="ethanolstv">Ethanol Stove</string>
+    <string name="biogasstv">Biogas Stove</string>
+    <string name="purifiedstv">Purified Water</string>
+    <string name="partsupp">Project Implementation Partner/ Supplier of Solutions</string>
+    <string name="org">Organization</string>
+    <string name="personresp">Person responsible for filling in the form</string>
+    <string name="cdmprojarea">CDM Project Area</string>
+    <string name="termone">1. The equipment supplied is provided as part of a CDM Program and that the household is a Project Participating household under the \"POA for the Reduction of emission from non-renewable fuel from cooking household level\" and that the equipment and solutions provided is subsidized with the income fromn the carbon credita generated.</string>
+    <string name="termtwo">2. The carbon credits generated from the solutions belong to Green Development AS.</string>
+    <string name="termthree">3. The household is not part of any other program or project in which carbon credits are generated for the same solutions as provided through this program.</string>
+    <string name="termfour">4.  Prior to receiving the equipmet or solutions reffered to in this contract, the household where using woody biomass  for cooking and boiling their drinking water. Without the provided equipment and solutions, the household would have continued to use woody biomass as cooking fuel and would have continued to boil their drinking water.</string>
+    <string name="takesurvey">Take Survey</string>
+    <string name="submit">Submit</string>
+    <string name="cd">Content Description</string>
+    <string name="enduseragree">End User Agreement</string>
+    <string name="intro">For solutions provided as part of the PoA for the reduction of emission from non-renewable fuel from cooking at household level</string>
+    <string name="area">Area</string>
+    <string name="termsofcontract">Terms of the contract</string>
+    <string name="understood">It is understood and agreed that the following statement are correct:</string>
+    <string name="signature">Signature</string>
+    <string name="manage">Manage Surveys</string>
+    <string name="config">Configurations</string>
+    <string name="takepic">Take Picture</string>
+    <string name="yes">Yes</string>
+</resources>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/OrgLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lvHdrItemHeight"
+            android:clickable="false" >
+
+            <View
+                android:id="@+id/item_separator"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lvDividerHeight"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+                android:background="@color/lvHeaderDividerColor" />
+
+            <TextView
+                android:id="@+id/TextView10"
+                style="@style/listViewHeaderItem"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5dp"
+                android:drawableBottom="@color/goblinGreen"
+                android:gravity="bottom|left"
+                android:text="@string/org"
+                android:textColor="@color/lvHeaderTextColor"
+                android:textIsSelectable="false" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TextView06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="6dp"
+            android:text="@string/area"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/lvHeadingTextSize" />
+        <EditText
+                android:id="@+id/editTextorgz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textCapWords" >
+
+                <requestFocus />
+            </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/PersRespLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lvHdrItemHeight"
+            android:clickable="false" >
+
+            <View
+                android:id="@+id/View01"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lvDividerHeight"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+                android:background="@color/lvHeaderDividerColor" />
+
+            <TextView
+                android:id="@+id/TextView01"
+                style="@style/listViewHeaderItem"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5dp"
+                android:drawableBottom="@color/goblinGreen"
+                android:gravity="bottom|left"
+                android:text="@string/cdmprojarea"
+                android:textColor="@color/lvHeaderTextColor"
+                android:textIsSelectable="false" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="6dp"
+            android:text="@string/area"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/lvHeadingTextSize" />
+
+        <Spinner
+            android:id="@+id/Spinner01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/orgtextView2"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="6dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/PersRespLinearLayout"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/lvHdrItemHeight"
+            android:clickable="false" >
+
+            <View
+                android:id="@+id/View02"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/lvDividerHeight"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+                android:background="@color/lvHeaderDividerColor" />
+
+            <TextView
+                android:id="@+id/TextView03"
+                style="@style/listViewHeaderItem"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5dp"
+                android:drawableBottom="@color/goblinGreen"
+                android:gravity="bottom|left"
+                android:text="@string/cdmprojarea"
+                android:textColor="@color/lvHeaderTextColor"
+                android:textIsSelectable="false" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/TextView04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="6dp"
+            android:text="@string/area"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="@dimen/lvHeadingTextSize" />
+
+        <Spinner
+            android:id="@+id/Spinner02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/orgtextView2"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="6dp" />
+    </LinearLayout>
+
+</RelativeLayout>

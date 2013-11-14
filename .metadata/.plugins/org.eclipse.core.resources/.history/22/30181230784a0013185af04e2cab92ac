@@ -1,0 +1,152 @@
+package com.green.development;
+
+import java.io.ByteArrayOutputStream;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+import com.green.development.GPSTracker;
+
+@SuppressLint("NewApi")
+public class SurveyActivity extends Activity {
+
+	EditText fullname;
+	EditText address;
+	EditText phone;
+	EditText organization;
+	EditText personresp;
+	EditText area;
+	Switch ethanol;
+	Switch biogas;
+	Switch purwater;
+	Button photoButton;
+	Button signature;
+	ProgressDialog dialog; 
+	ConnectionDetector cd;
+	GPSTracker gps;
+	
+	private DataBaseManager DatabaseHelpers;
+	private String table1 = "surveys";
+
+	SQLiteDatabase myDataBase;
+	
+	UserFunctions funcs = new UserFunctions();
+	
+	private static String KEY_SUCCESS = "success";
+	
+	String image_resource;
+		
+	private static final int CAMERA_REQUEST = 1888; 
+    private ImageView imageView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.survey);
+        
+        
+        fullname = (EditText) findViewById(R.id.editTextfullname);
+		address = (EditText) findViewById(R.id.editTextaddress);
+		this.phone = (EditText) findViewById(R.id.editTextphone);
+		this.organization = (EditText) findViewById(R.id.organizationeditText1);
+		this.personresp = (EditText) findViewById(R.id.personrespeditText2);
+		this.area = (EditText) findViewById(R.id.projareaEditText);
+		this.ethanol = (Switch) findViewById(R.id.switchEthanolstv);
+		this.biogas = (Switch) findViewById(R.id.switchBiogasstv);
+		this.purwater = (Switch) findViewById(R.id.switchPurifiedwater);
+        this.imageView = (ImageView)this.findViewById(R.id.sceneImage);
+        this.photoButton = (Button) this.findViewById(R.id.cap_button);
+        this.signature = (Button) this.findViewById(R.id.btnSignature);
+        
+        gps = new GPSTracker (SurveyActivity.this);
+       
+        
+        photoButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE); 
+                startActivityForResult(cameraIntent, CAMERA_REQUEST); 
+            }
+        });
+        
+        signature.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+				//if(fullname.getText()==null || address.getText()==null || phone.getText()==null || organization.getText()==null ||personresp.getText()==null ||area.getText()==null || image_resource.isEmpty()){
+				if(address.getText().length() <= 1){
+					// check if GPS is enabled     
+				    if(gps.canGetLocation()){
+				         
+				        double latitude = gps.getLatitude();
+				        double longitude = gps.getLongitude();
+				        Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+				        //startActivity(new Intent("com.green.development.surveysuccess"));
+						
+				    }else{
+				        // can't get location
+				        // GPS or Network is not enabled
+				        // Ask user to enable GPS/network in settings
+				        gps.showSettingsAlert();
+				    }
+				}else{
+		    		Toast.makeText(getApplicationContext(), "Please Fill All Fields Before Proceeding", Toast.LENGTH_SHORT).show();
+		    		
+				}
+			}});
+        
+	}
+
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {  
+            Bitmap photo = (Bitmap) data.getExtras().get("data"); 
+            imageView.setImageBitmap(photo);
+        }  
+    } 
+
+    public void getData(){
+
+    	ImageView sceneImage = (ImageView) findViewById(R.id.sceneImage);
+    	
+    	//Converts the whole ImageView layout into a Bitmap
+    	BitmapDrawable drawable = (BitmapDrawable) sceneImage.getDrawable();
+    	Bitmap bitmap = drawable.getBitmap();
+    	
+    	ByteArrayOutputStream stream = new ByteArrayOutputStream();
+    	bitmap.compress(Bitmap.CompressFormat.PNG, 90, stream);
+    	
+    	byte [] byte_arr = stream.toByteArray();    	
+    	
+
+    	image_resource = Base64.encodeBytes(byte_arr);
+
+    }
+}

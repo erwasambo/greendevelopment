@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="484dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/config"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/lvHeaderDividerColor" />
+
+        <LinearLayout
+            android:id="@+id/editinfolinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="@dimen/lvHdrItemHeight"
+		    android:clickable="false"
+		 >
+	    <View
+	        android:id="@+id/item_separator"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/lvDividerHeight"
+	        android:background="@color/lvHeaderDividerColor"
+	        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+	        />
+
+	     <TextView
+	         android:id="@+id/lv_list_hdr"
+	         style="@style/listViewHeaderItem"
+	         android:layout_width="match_parent"
+	         android:layout_height="fill_parent"
+	         android:layout_alignParentLeft="true"
+	         android:layout_marginTop="15dp"
+	         android:drawableBottom="@color/goblinGreen"
+	         android:gravity="bottom|left"
+	         android:text="@string/partsupp"
+	         android:textColor="@color/lvHeaderTextColor"
+	         android:textIsSelectable="false" />
+
+		</RelativeLayout>
+           
+            <TextView
+                android:id="@+id/textViewdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/org"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <EditText
+                android:id="@+id/editTextorga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textCapWords" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/textViewtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personresp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <EditText
+                android:id="@+id/editTextperson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textCapWords" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/OrgLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/editinfolinearLayout1"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="@dimen/lvHdrItemHeight"
+		    android:clickable="false"
+		 >
+	    <View
+	        android:id="@+id/item_separator"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/lvDividerHeight"
+	        android:background="@color/lvHeaderDividerColor"
+	        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+	        />
+
+        <TextView
+            android:id="@+id/TextView10"
+            style="@style/listViewHeaderItem"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="15dp"
+            android:drawableBottom="@color/goblinGreen"
+            android:gravity="bottom|left"
+            android:text="@string/cdmprojarea"
+            android:textColor="@color/lvHeaderTextColor"
+            android:textIsSelectable="false" />
+		</RelativeLayout>
+
+            <TextView
+                android:id="@+id/TextView06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="6dp"
+                android:text="@string/country"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+			<Spinner
+			    android:id="@+id/countrySpinner"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_alignParentLeft="true"
+			    android:layout_alignRight="@+id/orgtextView2"
+			    android:layout_below="@+id/textView1"
+			    android:layout_marginTop="6dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/myAreaLinearLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/OrgLinearLayout"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="6dp"
+                android:text="@string/area"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <Spinner
+                android:id="@+id/areaSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignRight="@+id/orgtextView2"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/myAreaLinearLayout01"
+            android:background="@color/goblinGreen"
+            android:text="@string/save"
+            android:textColor="@color/whiteColor" />
+
+    </RelativeLayout>
+
+</ScrollView>

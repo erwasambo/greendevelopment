@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1722dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/enduseragree"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/lvHeaderDividerColor" />
+
+        <TextView
+            android:id="@+id/orgtextView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView1"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:text="@string/intro" />
+
+        <LinearLayout
+            android:id="@+id/editinfolinearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/orgtextView2"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="@dimen/lvHdrItemHeight"
+		    android:clickable="false"
+		 >
+	    <View
+	        android:id="@+id/item_separator"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/lvDividerHeight"
+	        android:background="@color/lvHeaderDividerColor"
+	        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+	        />
+
+	     <TextView
+                android:id="@+id/lv_list_hdr"
+                style="@style/listViewHeaderItem"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="15dp"
+                android:drawableBottom="@color/goblinGreen"
+                android:gravity="bottom|left"
+                android:text="@string/enduserinfo"
+                android:textColor="@color/lvHeaderTextColor"
+                android:textIsSelectable="false" />
+		</RelativeLayout>
+           
+
+            <TextView
+                android:id="@+id/textViewdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fullname"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <EditText
+                android:id="@+id/editTextfullname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textCapWords" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/textViewtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <EditText
+                android:id="@+id/editTextaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textCapWords" />
+
+            <TextView
+                android:id="@+id/textViewcurrentloc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <EditText
+                android:id="@+id/editTextphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:inputType="phone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/picturelinearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/editinfolinearLayout1"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+		
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="@dimen/lvHdrItemHeight"
+		    android:clickable="false"
+		 >
+	    <View
+	        android:id="@+id/item_separator"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/lvDividerHeight"
+	        android:background="@color/lvHeaderDividerColor"
+	        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+	        />
+
+	    <TextView
+	                android:id="@+id/TextView04"
+	                style="@style/listViewHeaderItem"
+	                android:layout_width="match_parent"
+	                android:layout_height="fill_parent"
+	                android:layout_alignParentLeft="true"
+	                android:layout_marginTop="15dp"
+	                android:drawableBottom="@color/goblinGreen"
+	                android:gravity="bottom|left"
+	                android:text="@string/picture"
+	                android:textColor="@color/lvHeaderTextColor"
+	                android:textIsSelectable="false" />
+		</RelativeLayout>
+
+           <LinearLayout
+		    android:id="@+id/textPanel"
+		    android:layout_width="match_parent"
+		    android:layout_height="140dp"
+		    android:orientation="vertical"
+		    android:padding="8dip">
+
+			<ImageView
+			    android:id="@+id/sceneImage"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content" />
+
+		</LinearLayout>
+
+ 			<Button
+ 			    android:id="@+id/cap_button"
+ 			    android:layout_width="fill_parent"
+ 			    android:layout_height="wrap_content"
+ 			    android:text="@string/takepic" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/equipmentsolLinearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/picturelinearLayout2"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="@dimen/lvHdrItemHeight"
+		    android:clickable="false"
+		 >
+	    <View
+	        android:id="@+id/item_separator"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/lvDividerHeight"
+	        android:background="@color/lvHeaderDividerColor"
+	        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+	        />
+
+            <TextView
+                android:id="@+id/TextView07"
+                style="@style/listViewHeaderItem"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="15dp"
+                android:drawableBottom="@color/goblinGreen"
+                android:gravity="bottom|left"
+                android:text="@string/equipsol"
+                android:textColor="@color/lvHeaderTextColor"
+                android:textIsSelectable="false" />
+		</RelativeLayout>
+
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="@string/ethanolstv"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/biogasstv"
+        android:textSize="@dimen/lvHeadingTextSize" />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/purifiedstv"
+        android:textSize="@dimen/lvHeadingTextSize" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/projectimplLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/equipmentsolLinearlayout"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="@dimen/lvHdrItemHeight"
+		    android:clickable="false"
+		 >
+	    <View
+	        android:id="@+id/item_separator"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/lvDividerHeight"
+	        android:background="@color/lvHeaderDividerColor"
+	        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+	        />
+
+ 		<TextView
+                android:id="@+id/TextView05"
+                style="@style/listViewHeaderItem"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="15dp"
+                android:drawableBottom="@color/goblinGreen"
+                android:gravity="bottom|left"
+                android:text="@string/partsupp"
+                android:textColor="@color/lvHeaderTextColor"
+                android:textIsSelectable="false" />
+		</RelativeLayout>
+           
+
+    <TextView
+        android:id="@+id/orgtextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="6dp"
+        android:text="@string/org"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="@dimen/lvHeadingTextSize" />
+
+    <EditText
+        android:id="@+id/organizationeditText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/orgtextView2"
+        android:layout_marginTop="6dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/personresp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="@dimen/lvHeadingTextSize" />
+
+    <EditText
+        android:id="@+id/personrespeditText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextView01"
+        android:layout_marginTop="6dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/CDMLinearLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/projectimplLayout01"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="@dimen/lvHdrItemHeight"
+		    android:clickable="false"
+		 >
+	    <View
+	        android:id="@+id/item_separator"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/lvDividerHeight"
+	        android:background="@color/lvHeaderDividerColor"
+	        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+	        />
+
+        <TextView
+            android:id="@+id/TextView10"
+            style="@style/listViewHeaderItem"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="15dp"
+            android:drawableBottom="@color/goblinGreen"
+            android:gravity="bottom|left"
+            android:text="@string/cdmprojarea"
+            android:textColor="@color/lvHeaderTextColor"
+            android:textIsSelectable="false" />
+		</RelativeLayout>
+            <TextView
+                android:id="@+id/TextView06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="6dp"
+                android:text="@string/area"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <EditText
+                android:id="@+id/projareaEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/orgtextView2"
+                android:layout_marginTop="6dp"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ContracttermsLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/CDMLinearLayout01"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+		<RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="@dimen/lvHdrItemHeight"
+		    android:clickable="false"
+		 >
+	    <View
+	        android:id="@+id/item_separator"
+	        android:layout_alignParentBottom="true"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/lvDividerHeight"
+	        android:background="@color/lvHeaderDividerColor"
+	        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+	        />
+
+            <TextView
+                android:id="@+id/TextView14"
+                style="@style/listViewHeaderItem"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="15dp"
+                android:drawableBottom="@color/goblinGreen"
+                android:gravity="bottom|left"
+                android:text="@string/termsofcontract"
+                android:textColor="@color/lvHeaderTextColor"
+                android:textIsSelectable="false" />
+		</RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/TextView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="6dp"
+                android:text="@string/understood"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <TextView
+                android:id="@+id/TextView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/termone"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <TextView
+                android:id="@+id/TextView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/personrespeditText2"
+                android:layout_marginTop="6dp"
+                android:text="@string/termtwo"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <TextView
+                android:id="@+id/TextView08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/termthree"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+            <TextView
+                android:id="@+id/TextView09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/termfour"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="@dimen/lvHeadingTextSize" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="42dp"
+            android:text="@string/signature" />
+
+    </RelativeLayout>
+
+</ScrollView>

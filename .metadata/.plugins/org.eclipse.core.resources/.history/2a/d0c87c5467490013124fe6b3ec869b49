@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    tools:ignore="TextFields,ContentDescription,SpUsage" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+		<LinearLayout
+		    android:id="@+id/textPanel"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:padding="8dip">
+		    
+		    <!-- User Location -->
+			
+	        <!-- Accident Category -->
+			 
+	         <!-- Number Injured -->
+			 
+	          <!-- Number Dead -->
+
+			<ImageView
+			    android:id="@+id/sceneImage"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content" />
+
+		</LinearLayout>
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dip">
+	        <Button
+	            android:id="@+id/cap_button"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/capture" />
+	     </LinearLayout>
+	     
+        <RelativeLayout
+            android:id="@+id/relativeLogout"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+             >
+	        
+	        <LinearLayout
+	            android:id="@+id/thumbnail"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentLeft="true"
+	            android:layout_marginLeft="5dip"
+	            android:layout_marginRight="5dip"
+	            android:layout_marginTop="5dip"
+	            android:orientation="vertical" >
+        
+			</LinearLayout>
+   		 </RelativeLayout>
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/next" />
+
+    </LinearLayout>
+
+</ScrollView>
