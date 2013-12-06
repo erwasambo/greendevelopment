@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="55dp"
+        android:text="@string/func"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView01"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_marginLeft="16dp"
+        android:text="@string/admin"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imgadmin"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/TextView02"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_marginBottom="28dp"
+        android:src="@drawable/admin" />
+
+    <ImageView
+        android:id="@+id/imgstaff"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignTop="@+id/imgadmin"
+        android:src="@drawable/staff" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/hospstaff"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgstaff"
+        android:layout_alignRight="@+id/TextView01"
+        android:layout_marginBottom="48dp"
+        android:layout_marginRight="25dp"
+        android:text="@string/patients"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imgpatients"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/TextView01"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/patientimg" />
+
+    <ImageView
+        android:id="@+id/imgfunction"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignTop="@+id/imgpatients"
+        android:src="@drawable/function" />
+
+</RelativeLayout>

@@ -1,0 +1,91 @@
+1383586145885	Delete element
+1383586186580	Delete element
+1383586312858	Delete element
+1383586327075	Delete element
+1383586401592	Delete element
+1383586544755	Copy compilation unit
+1383586731117	Copy compilation unit
+1383586747821	Delete element
+1383587088045	Copy compilation unit
+1383587101676	Delete element
+1383587702010	Delete element
+1383588000542	Delete element
+1383588008995	Delete element
+1383588019220	Delete element
+1383588069604	Delete element
+1383588505207	Delete element
+1383588532772	Delete element
+1383588546452	Delete element
+1383588642438	Delete element
+1383588728525	Delete element
+1383597383058	Extracts string 'null' into R.string.email
+1383597418101	Extracts string 'null' into R.string.pass
+1383597444627	Extracts string 'null' into R.string.login
+1383597476272	Extracts string 'null' into R.string.register
+1383597551448	Extracts string 'null' into R.string.reg
+1383597851402	Change Layout
+1383652587098	Rename type 'BeginActivity'
+1383652672511	Delete element
+1383652812662	Delete element
+1383652995484	Delete element
+1383653503378	Delete element
+1383653636188	Extracts string 'null' into R.string.takesurvey
+1383654357621	Rename field 'button1'
+1383654830167	Rename field 'btnStartsail'
+1383654874435	Rename field 'editTexttime'
+1383654890239	Rename field 'editTextlocation'
+1383655539348	Extracts string 'null' into R.string.submit
+1383655620628	Rename field 'submit'
+1383657773399	Move file
+1383657789863	Move file
+1383776442397	Rename field 'addgestlayout'
+1383782537752	Rename type 'Capture'
+1383783848194	Rename resource 'capture_activity.xml'
+1384010390335	Delete element
+1384018951678	Delete element
+1384029359904	Rename type 'EndUserInfoActivity'
+1384029570143	Delete element
+1384030021276	Copy file
+1384030041154	Rename resource 'Copy of survey.xml'
+1384031779002	Delete element
+1384032024472	Delete element
+1384032050142	Delete element
+1384032322098	Delete elements
+1384032338336	Delete element
+1384071681321	Extracts string 'null' into R.string.enduseragree
+1384072134131	Extracts string 'null' into R.string.intro
+1384078335730	Delete element
+1384081876094	Delete element
+1384081912703	Delete element
+1384082533455	Delete element
+1384083026836	Delete element
+1384084438950	Rename field 'textView2'
+1384084486031	Rename field 'editText1'
+1384084530093	Rename field 'editText2'
+1384085098051	Extracts string 'null' into R.string.area
+1384085261325	Extracts string 'null' into R.string.termsofcontract
+1384085409641	Extracts string 'null' into R.string.understood
+1384085735668	Extracts string 'null' into R.string.signature
+1384092116337	Delete element
+1384092130370	Delete element
+1384092162920	Delete element
+1384092181275	Delete element
+1384092274593	Extracts string 'null' into R.string.manage
+1384092318082	Extracts string 'null' into R.string.config
+1384093279541	Delete element
+1384093286609	Delete element
+1384093291817	Delete element
+1384094863546	Extracts string 'null' into R.string.takepic
+1384096340755	Rename field 'textPanel'
+1384096843621	Delete element
+1384096884442	Delete element
+1384110156235	Extracts string 'null' into R.string.yes
+1384110213531	Extracts string 'null' into R.string.not
+1384111501007	Delete element
+1384111521682	Delete element
+1384112849464	Rename field 'switch1'
+1384112852302	Rename field 'switch1'
+1384112874233	Rename field 'switch2'
+1384112877410	Rename field 'switch2'
+1384112890880	Rename field 'switch3'
+1384112895930	Rename field 'switch3'

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NAS Cuisine</string>
+     <string name="app_namelogin">NAS Cuisine - Log in</string>
+    
+    
+    
+    
+    <string name="action_settings">Settings</string>
+    <string name="activity_scrollview">ScrollView</string>
+    <string name="activity_listview">ListView</string>
+    <string name="activity_gridview">GridView</string>
+    <string name="activity_webview">WebView</string>
+    <string name="activity_fragment_tabs">Fragments + Tabs</string>
+    <string name="activity_fragment_tabs_vp">Fragments + Tabs + ViewPager</string>
+    <string name="pref_title_stick_container">Stick layer to</string>
+    <string name="pref_title_show_shadow">Show shadow</string>
+    <string name="pref_title_show_offset">Closed offset</string>
+    <string name="open_button_container">Open</string>
+    <string name="close_button_container">Close</string>
+	<string name="title_activity_main">PayPal Access</string>
+    <string name="title_activity_login">Login</string>
+    <string name="btn_login">Login with PayPal</string>
+    <string name="progress_loading_title">Loading&#8320;</string>
+    <string name="progress_loading_msg">Login is possible in a few seconds</string>
+    <string name="toast_login_ok">Logged in</string>
+    <string name="toast_login_failed">Login failed</string>
+    <string name="login_description">This enables the user to use his PayPal credentials to login. Thus he doesn\'t have to create yet another account and remember yet another password.</string>
+	<string name="login_oauth">OAuth 2.0</string>
+	<string name="login_openid">OpenID</string>
+    
+    <string name="swipe_label">Swipe!</string>
+    <string name="swipe_left_label">Swipe left!</string>
+    <string name="swipe_right_label">Swipe right!</string>
+    <string name="swipe_up_label">Swipe up!</string>
+    <string name="swipe_down_label">Swipe down!</string>
+
+    <string name="label_right">Right</string>
+    <string name="label_left">Left</string>
+    <string name="label_middle">Middle</string>
+    <string name="label_top">Top</string>
+    <string name="label_bottom">Bottom</string>
+
+    <string name="not_applicable">n/a</string>
+    
+    <string-array name="pref_list_titles">
+        <item>@string/label_right</item>
+        <item>@string/label_middle</item>
+        <item>@string/label_left</item>
+        <item>@string/label_top</item>
+        <item>@string/label_bottom</item>
+    </string-array>
+    <string-array name="pref_list_values">
+        <item>right</item>
+        <item>middle</item>
+        <item>left</item>
+        <item>top</item>
+        <item>bottom</item>
+    </string-array>
+
+    <string name="pref_go">Go!</string>
+	
+    <string name="no_media_warning">Storage Media not present</string>
+    <string name="no_media_hint">Sharing the storage media with a PC can make it inaccessible</string>
+    <string name="open_failed">Unable to open document</string>
+    <string name="cancel">Cancel</string>
+    <string name="search_backwards">Search backwards</string>
+    <string name="search_forwards">Search forwards</string>
+    <string name="search_document">Search document</string>
+    <string name="picker_title">NAS Cuisine</string>
+    <string name="outline_title">Table of Contents</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="text_not_found">Text not found</string>
+    <string name="searching_">Searching...</string>
+    <string name="link_control">Link highlighting and enabling</string>
+    <string name="no_further_occurences_found">No further occurences found</string>
+    <string name="gen_pdf">Generate pdf</string>
+    <string name="view_pdf">View pdf</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="progress_title">Generateing pdf...</string>
+	
+    <string name="taliiafrica">Julisha</string>
+	<string name="main">Julisha</string>
+	<string name="weather">Check Weather</string>
+	<string name="rescue">Emergency Rescue</string>
+	<string name="exit">Exit</string>
+	<string name="srtsail">Begin Sailing</string>
+	<string name="stpsail">End Sailing</string>
+	<string name="chkmap">Check Map</string>
+	<string name="sets">Settings</string>
+	<string name="vsltype">Vessel Type:</string>
+	<string name="vid">Vessel Id:</string>
+	<string name="vslname">Vessel Name:</string>
+	<string name="wtrbody">Water Body:</string>
+	<string name="desc">General Description:</string>
+	<string name="sv">Save</string>
+	<string name="lgout">Logout</string>
+	<string name="sail">Sailing</string>
+	<string name="myacc">My Account</string>
+	<string name="date">Date:</string>
+	<string name="time">Time:</string>
+	<string name="initloc">Initial Location:</string>
+	<string name="Destination">Destination:</string>
+	<string name="onboard">Number Onboard:</string>
+	<string name="act">Activity:</string>
+	<string name="bgnSail">Begin Sailing</string>
+	<string name="currLoc">Current Location:</string>
+	<string name="endsail">End Sailing</string>
+	<string name="prevloc">Previous Location</string>
+	<string name="desc2">Image2</string>
+	<string name="login">Login</string>
+	<string name="email">Email:</string>
+	<string name="password">Password:</string>
+	<string name="newtojulisharegister">New to Julisha? Register here</string>
+	<string name="registeracc">Register New Account</string>
+	<string name="fullname">Full Name</string>
+	<string name="logout">Logout</string>
+	<string name="briefdesc">Brief Description:</string>
+	<string name="safe">Safe</string>
+	<string name="minor">Minor Problem</string>
+	<string name="danger">Danger</string>
+	<string name="xtremedanger">Extreme Danger</string>
+	<string name="signup">Sign up</string>
+	<string name="donthaveacc">Don\'t have an account yet? </string>
+	<string name="forgotpwd">Forgot Password</string>
+	<string name="firstname">First Name</string>
+	<string name="othernames">Other Names</string>
+	<string name="staffno">Staff Number</string>
+    
+    
+    
+    
+</resources>

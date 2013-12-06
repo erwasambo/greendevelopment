@@ -1,0 +1,228 @@
+package com.green.development;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.hardware.Camera;
+import android.hardware.Camera.PictureCallback;
+import android.hardware.Camera.ShutterCallback;
+import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class TakePictureActivity extends Activity{
+    private Bitmap bmp = null;
+    ProgressDialog pg=null;
+    ProgressDialog pg2=null;
+    private Preview preview;
+    String filename;
+    Button ok_button,click_button,try_again_button;
+    private byte[] data2=null;
+    EditText filenameBox;
+    Cursor cursor;
+    private DataBaseManager DatabaseHelpers;
+    String table = "general";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.takepicture);
+		
+		//get data from intents
+        Intent myIntent = getIntent();
+        String [] userinfo = myIntent.getExtras().getStringArray("UserInfo");
+        String fullname = userinfo[0];
+        String address = userinfo[1];
+        String phone = userinfo[2];
+		
+		
+		//Create and open the database so we can use it
+		DatabaseHelpers = DataBaseManager.instance();
+		
+		preview=new Preview(this);
+        ((FrameLayout) findViewById(R.id.preview2)).addView(preview);
+        findViewById(R.id.preview2).setVisibility(View.VISIBLE);
+        findViewById(R.id.img2).setVisibility(View.GONE);
+ 
+        ButtonListener listener=new ButtonListener();
+        click_button=((Button) findViewById(R.id.capture_button2));
+        click_button.setVisibility(View.VISIBLE);
+        click_button.setOnClickListener(listener);
+ 
+        try_again_button=((Button) findViewById(R.id.recapture_button2));
+        try_again_button.setVisibility(View.GONE);
+        try_again_button.setOnClickListener(listener);
+ 
+        ok_button=((Button) findViewById(R.id.ok_button2));
+        ok_button.setVisibility(View.GONE);
+        ok_button.setOnClickListener(listener);
+	}
+	
+	private class ButtonListener implements View.OnClickListener{
+		 
+        @Override
+        public void onClick(View v) {
+            if(v.equals(findViewById(R.id.capture_button2))){
+                pg=ProgressDialog.show(TakePictureActivity.this, null, "Capturing Image..");
+                pg.show();
+                preview.camera.takePicture(null, null, jpegCallback);
+
+                
+            }else if(v.equals(findViewById(R.id.ok_button2))){
+
+            	//process and save image
+               
+                bmp.recycle();
+            }else if(v.equals(findViewById(R.id.recapture_button2))){
+            	
+                findViewById(R.id.img2).setVisibility(View.GONE);
+                findViewById(R.id.preview2).setVisibility(View.VISIBLE);
+                bmp.recycle();
+                preview.camera.startPreview();
+                ok_button.setVisibility(View.GONE);
+                try_again_button.setVisibility(View.GONE);
+                click_button.setVisibility(View.VISIBLE);
+
+            }
+        }
+ 
+    }
+ 
+    ShutterCallback shutterCallback = new ShutterCallback() {
+        public void onShutter() {
+            //Log.d(TAG, "onShutter'd");
+            System.out.println("In ShutterCallback");
+        }
+    };
+ 
+    /** Handles data for raw picture */
+    PictureCallback rawCallback = new PictureCallback() {
+        public void onPictureTaken(byte[] data, Camera camera) {
+            if(data!=null){
+                bmp=BitmapFactory.decodeByteArray(data,0,data.length);
+                findViewById(R.id.img2).setVisibility(View.VISIBLE);
+                ((ImageView)findViewById(R.id.img2)).setImageBitmap(bmp);
+                findViewById(R.id.preview2).setVisibility(View.GONE);
+                
+                 if(pg!=null)
+                    pg.dismiss();
+                ok_button.setVisibility(View.VISIBLE);
+                click_button.setVisibility(View.GONE);
+                try_again_button.setVisibility(View.VISIBLE);
+            }
+        }
+    };
+    /** Handles data for jpeg picture */
+    PictureCallback jpegCallback = new PictureCallback() {
+        public void onPictureTaken(byte[] data, Camera camera) {
+        	//lengthnwidth(bmp);
+        	//Toast.makeText(getApplicationContext(), "The image length is : "+length+" and width is: "+width, Toast.LENGTH_LONG).show();
+            if(data!=null){
+                bmp=BitmapFactory.decodeByteArray(data,0,data.length);
+                findViewById(R.id.img2).setVisibility(View.VISIBLE);
+                ((ImageView)findViewById(R.id.img2)).setImageBitmap(bmp);
+                findViewById(R.id.preview2).setVisibility(View.GONE);
+        		
+                data2 = data;
+                
+                if(pg!=null)
+                    pg.dismiss();
+                ok_button.setVisibility(View.VISIBLE);
+                click_button.setVisibility(View.GONE);
+                try_again_button.setVisibility(View.VISIBLE);
+                
+                
+                try {
+                	
+                } catch (Exception error) {
+                  
+                }finally{
+                	
+                	
+                }
+            }
+        	
+        }
+    };
+    
+    
+    private File getDir() {
+        File sdDir = Environment.getExternalStorageDirectory();
+ 
+        return new File(sdDir, "Maelewano");
+    }
+
+    public void confirmedsave(){
+    	
+        filename = filenameBox.getText().toString();
+    	File pictureFileDir = getDir();
+    	    	
+        if (!pictureFileDir.exists() && !pictureFileDir.mkdirs()) {
+
+          Toast.makeText(getApplicationContext(), "Can't create directory to save image.",
+              Toast.LENGTH_LONG).show();
+          return;
+
+        }
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
+        String date = dateFormat.format(new Date());
+
+        String ExternalStorageDirectoryPath = Environment.getExternalStorageDirectory()
+                .getAbsolutePath();
+
+        String interpretImg = ExternalStorageDirectoryPath + "/maelewano/" + filename + ".jpg";
+        File imageFile = new File(interpretImg);
+        //copyDatabaseToSdCard();
+        try {
+          if (data2!=null){
+          //update the database with calculated values
+      	          
+          FileOutputStream fos = new FileOutputStream(imageFile);
+          fos.write(data2);
+          fos.close();
+
+          Toast.makeText(getApplicationContext(), "New Image saved:" + interpretImg,
+              Toast.LENGTH_LONG).show();
+          
+
+        }
+
+        } catch (Exception error) {
+          
+        }
+        
+       
+        findViewById(R.id.img2).setVisibility(View.GONE);
+        findViewById(R.id.preview2).setVisibility(View.VISIBLE);
+        preview.camera.startPreview();
+        ok_button.setVisibility(View.GONE);
+        try_again_button.setVisibility(View.GONE);
+        click_button.setVisibility(View.VISIBLE);
+    }
+
+    
+}

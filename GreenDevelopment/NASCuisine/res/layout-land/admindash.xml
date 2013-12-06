@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnMealord"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple"
+        android:text="@string/mealord"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/btnDryStore"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple"
+        android:layout_marginTop="5dp"
+        android:text="@string/drystore" 
+        android:textSize="25dp"/>
+
+    <Button
+        android:id="@+id/btnsalessum"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple"
+        android:layout_marginTop="5dp"
+        android:text="@string/salessummary"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/btnmealsum"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple"
+        android:layout_marginTop="5dp"
+        android:text="@string/mealsum"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/btnTransferVoc"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple"
+        android:layout_marginTop="5dp"
+        android:text="@string/transf"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/btndeliv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple"
+        android:layout_marginTop="5dp"
+        android:text="@string/delivbook"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/btnLaund"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/purple"
+        android:layout_marginTop="5dp"
+        android:text="@string/laundbook"
+        android:textSize="25dp" />
+
+</LinearLayout>

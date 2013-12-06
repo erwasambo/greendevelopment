@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/btnTakeSurvey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp"
+        android:text="@string/takesurvey" />
+
+    <Button
+        android:id="@+id/btnManageSurv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnTakeSurvey"
+        android:layout_below="@+id/btnTakeSurvey"
+        android:layout_marginTop="57dp"
+        android:text="@string/manage" />
+
+    <Button
+        android:id="@+id/btnConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnManageSurv"
+        android:layout_below="@+id/btnManageSurv"
+        android:layout_marginTop="66dp"
+        android:text="@string/config" />
+
+</RelativeLayout>

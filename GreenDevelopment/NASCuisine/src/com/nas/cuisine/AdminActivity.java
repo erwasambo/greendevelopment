@@ -1,0 +1,90 @@
+package com.nas.cuisine;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+
+public class AdminActivity extends Activity{
+
+	Button btnMealord;
+	Button btnDryStore;
+	Button btnsalessum;
+	Button btnmealsum;
+	Button btnTransferVoc;
+	Button btndeliv;
+	Button btnLaund;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.admindash);
+		
+		
+		btnMealord = (Button)findViewById(R.id.btnMealord);
+		btnMealord.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	Toast.makeText(getApplicationContext(), "Functionality comming soon", Toast.LENGTH_SHORT).show();
+	        }
+	    });
+		
+		btnDryStore = (Button)findViewById(R.id.btnDryStore);
+		btnDryStore.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	//startActivity(new Intent(DashboardActivity.this, HomeActivity.class));
+	        	Toast.makeText(getApplicationContext(), "Functionality comming soon", Toast.LENGTH_SHORT).show();
+	        }
+	    });
+		
+		btnsalessum = (Button)findViewById(R.id.btnsalessum);
+		btnsalessum.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	//startActivity(new Intent(DashboardActivity.this, HomeActivity.class));
+	        	Toast.makeText(getApplicationContext(), "Functionality comming soon", Toast.LENGTH_SHORT).show();
+	        }
+	    });
+		
+		btnTransferVoc = (Button)findViewById(R.id.btnTransferVoc);
+		btnTransferVoc.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	Toast.makeText(getApplicationContext(), "Functionality comming soon", Toast.LENGTH_SHORT).show();
+	        }
+	    });
+		
+		btndeliv = (Button)findViewById(R.id.btndeliv);
+		btndeliv.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	//startActivity(new Intent(DashboardActivity.this, HomeActivity.class));
+	        	Toast.makeText(getApplicationContext(), "Functionality comming soon", Toast.LENGTH_SHORT).show();
+	        }
+	    });
+		
+		btnLaund = (Button)findViewById(R.id.btnLaund);
+		btnLaund.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	Toast.makeText(getApplicationContext(), "Functionality comming soon", Toast.LENGTH_SHORT).show();
+	        }
+	    });
+		
+		
+		
+		
+		
+		
+	}
+	
+
+	
+
+}

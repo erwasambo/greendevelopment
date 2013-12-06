@@ -1,0 +1,165 @@
+package com.laws.of.kenya;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class TheLawsActivity extends Activity{
+
+	 public static final int HDR_POS1 = 0;
+    public static final int HDR_POS2 = 11;
+	public static final int HDR_POS2 = 22;
+    public static final String[] LIST = { "CONSTITUTIONAL", "The Revision of the Laws Act",
+        "The Interpretation and General Provisions Act", "The Law Reform Commission Act", "The Constitution of Kenya Review Act (Expired)","The East African Community Mediation Agreement Act",
+		"The Eastern and Southern African Management Institute Act",
+		"The Preferential Trade Area (Implementation) Act",
+		"The National Assembly Remuneration Act",
+		"The National Assembly(Powers and Privileges) Act",
+		"The National Assembly and Presidential Elections Act",
+		"COURTS AND OFFICERS OF THE COURT",
+		
+        "The Judicature Act", 
+		"The Appellate Jurisdiction Act", 
+		"The Magistrates’ Courts Act", 
+		"The Kadhis’ Courts Act"
+		"The Commissioners of Assize Act", 
+		"The Records Disposal Act", 
+		"The Oaths and Statutory Declarations Act", 
+		"The Advocates Act"
+		"The Council of Legal Education Act"
+		"The Notaries Public Act", 
+		"The Law Society of Kenya Act", 
+		"The Public Archives and Documentation Service Act"
+		};
+    public static final String[] SUBTEXTS = { null, "CHAPTER (Cap. No.) 1",
+        "CHAPTER (Cap. No.) 2", "CHAPTER (Cap. No.) 3", "CHAPTER (Cap. No.) 3A", 
+		"CHAPTER (Cap. No.) 4",
+		"CHAPTER (Cap. No.) 4A",
+		"CHAPTER (Cap. No.) 4B",
+		"CHAPTER (Cap. No.) 5",
+		"CHAPTER (Cap. No.) 6",
+		"CHAPTER (Cap. No.) 7",
+		null,
+		
+		"CHAPTER (Cap. No.) 8",
+		"CHAPTER (Cap. No.) 9",
+		"CHAPTER (Cap. No.) 10",
+		"CHAPTER (Cap. No.) 11",
+		"CHAPTER (Cap. No.) 12",
+		"CHAPTER (Cap. No.) 14",
+		"CHAPTER (Cap. No.) 15",
+		"CHAPTER (Cap. No.) 16",
+		"CHAPTER (Cap. No.) 16A",
+		"CHAPTER (Cap. No.) 17",
+		"CHAPTER (Cap. No.) 18",
+		"CHAPTER (Cap. No.) 19",
+		null,
+        "Not a racist", "Is there anything to be said for another mass", "Off to get some heroin", "Toddy tod tod. There you are now Todd." };
+
+    private static final Integer LIST_HEADER = 0;
+    private static final Integer LIST_ITEM = 1;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.thelaws);
+		
+		ListView lv = (ListView)findViewById(R.id.lawListView);
+        lv.setAdapter(new MyListAdapter(this));
+		
+	}
+
+	 private class MyListAdapter extends BaseAdapter {
+        public MyListAdapter(Context context) {
+            mContext = context;
+        }
+
+        @Override
+        public int getCount() {
+            return LIST.length;
+        }
+
+        @Override
+        public boolean areAllItemsEnabled() {
+            return true;
+        }
+
+        @Override
+        public boolean isEnabled(int position) {
+            return true;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return position;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            String headerText = getHeader(position);
+            if(headerText != null) {
+
+                View item = convertView;
+                if(convertView == null || convertView.getTag() == LIST_ITEM) {
+
+                    item = LayoutInflater.from(mContext).inflate(
+                            R.layout.lv_header_layout, parent, false);
+                    item.setTag(LIST_HEADER);
+
+                }
+
+                TextView headerTextView = (TextView)item.findViewById(R.id.lv_list_hdr);
+                headerTextView.setText(headerText);
+                return item;
+            }
+
+            View item = convertView;
+            if(convertView == null || convertView.getTag() == LIST_HEADER) {
+                item = LayoutInflater.from(mContext).inflate(
+                        R.layout.lv_layout, parent, false);
+                item.setTag(LIST_ITEM);
+            }
+
+            TextView header = (TextView)item.findViewById(R.id.lv_item_header);
+            header.setText(LIST[position % LIST.length]);
+
+            TextView subtext = (TextView)item.findViewById(R.id.lv_item_subtext);
+            subtext.setText(SUBTEXTS[position % SUBTEXTS.length]);
+
+            //Set last divider in a sublist invisible
+            View divider = item.findViewById(R.id.item_separator);
+            if(position == HDR_POS2 -1) {
+                divider.setVisibility(View.INVISIBLE);
+            }
+
+
+            return item;
+        }
+
+        private String getHeader(int position) {
+
+            if(position == HDR_POS1  || position == HDR_POS2) {
+                return LIST[position];
+            }
+
+            return null;
+        }
+
+        private final Context mContext;
+    }
+	
+}

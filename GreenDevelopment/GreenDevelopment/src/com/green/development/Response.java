@@ -1,0 +1,48 @@
+package com.green.development;
+
+public class Response {
+	public String id = null; 
+	public String name = null; 
+	public String address = null; 
+	public String phone = null; 
+	public String resourceFilePathId = null;  
+	public String organization = null; 
+	public String person = null; 
+	public String projarea  = null;
+	public String ethanol = null; 
+	public String biogas = null; 
+	public String purwater = null;
+	boolean selected  = false;
+
+     public Response(){
+             // TODO Auto-generated constructor stub
+     }
+
+     public Response(String id, String name, String address, String phone, String resourceFilePath,  String organization, 
+	 String person,String projarea, String ethanol, String biogas, String purwater, boolean selected){
+		 this.id = id;
+    	 this.name = name;
+		 this.address = address;
+		 this.phone = phone;
+		 this.resourceFilePathId = resourceFilePath;
+		 this.organization = organization;
+		 this.person = person;
+		 this.projarea = projarea;
+		 this.ethanol = ethanol;
+		 this.biogas = biogas;
+		 this.purwater = purwater;
+		 this.selected = selected;
+     }
+
+     public boolean isSelected(){
+    	 return selected;
+     }
+     public void setSelected(boolean selected){
+    	 this.selected = selected;
+     }
+     
+     @Override
+     public String toString(){
+             return this.name;
+     }
+}

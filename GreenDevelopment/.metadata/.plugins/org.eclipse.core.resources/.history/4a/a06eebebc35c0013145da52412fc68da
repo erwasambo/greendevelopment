@@ -1,0 +1,30 @@
+package com.nas.cuisine;
+
+public class Response {
+	public String id = null; 
+	public String name = null; 
+	boolean selected  = false;
+
+     public Response(){
+             // TODO Auto-generated constructor stub
+     }
+
+     public Response(String id, String name, String address, String phone, String resourceFilePath,  String organization, 
+	 String person,String projarea, String ethanol, String biogas, String purwater, boolean selected){
+		 this.id = id;
+    	 this.name = name;
+		 this.selected = selected;
+     }
+
+     public boolean isSelected(){
+    	 return selected;
+     }
+     public void setSelected(boolean selected){
+    	 this.selected = selected;
+     }
+     
+     @Override
+     public String toString(){
+             return this.name;
+     }
+}

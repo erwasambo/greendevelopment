@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright 2013 Chris Banes
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  <color name="black">#FF000000</color>
+  -->
+
+<resources>
+     <color name="white">#FFFFFF</color>
+	 <color name="canvas">#CC0000</color>
+		<color name="bar">#CC0000</color>
+     <color name="black">#FF000000</color>
+     <color name="purple">#CC0000</color>
+    <color name="holo_dark_green">@color/purple</color>
+	<color name="default_progress_bar_color">@color/white</color>
+	 <color name="abs__background_holo_dark">@color/purple</color>
+    <color name="abs__background_holo_light">@color/purple</color>
+    <color name="abs__bright_foreground_holo_dark">@color/purple</color>
+    <color name="abs__bright_foreground_holo_light">@color/purple</color>
+    <color name="abs__bright_foreground_disabled_holo_dark">@color/purple</color>
+    <color name="abs__bright_foreground_disabled_holo_light">@color/purple</color>
+</resources>

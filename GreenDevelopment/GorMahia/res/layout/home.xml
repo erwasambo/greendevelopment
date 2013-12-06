@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="fill" >
+
+    <Button
+        android:id="@+id/btnTheLaws"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/thelaws" />
+
+    <Button
+        android:id="@+id/btnAmend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnBills"
+        android:text="@string/amendment" />
+
+    <Button
+        android:id="@+id/btneac"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAmend"
+        android:layout_centerHorizontal="true"
+        android:text="@string/eaclegis" />
+
+    <Button
+        android:id="@+id/btnstatutes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btneac"
+        android:text="@string/repstatutes" />
+
+    <Button
+        android:id="@+id/btnlegislation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btnstatutes"
+        android:text="@string/recentleg" />
+
+    <Button
+        android:id="@+id/btnBills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnLegalNotice"
+        android:text="@string/bills" />
+
+    <Button
+        android:id="@+id/btnConstitution"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnTheLaws"
+        android:text="@string/constitution" />
+
+    <Button
+        android:id="@+id/btnLegalNotice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnConstitution"
+        android:text="@string/legalnotices" />
+
+    <Button
+        android:id="@+id/btndev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnlegislation"
+        android:text="@string/devlaws" />
+
+</RelativeLayout>

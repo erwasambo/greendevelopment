@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/imgtakesrvy"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="38dp"
+        android:layout_marginTop="30dp"
+        android:layout_toLeftOf="@+id/textViewlati"
+        android:src="@drawable/survey" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_marginRight="17dp"
+        android:layout_toLeftOf="@+id/textViewlati"
+        android:text="@string/takesurvey"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imgusrconfig"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignTop="@+id/imgtakesrvy"
+        android:layout_marginLeft="48dp"
+        android:src="@drawable/config" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imgusrconfig"
+        android:layout_marginRight="17dp"
+        android:text="@string/config"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textViewlati"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgsubmitsurvy"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/textView3"
+        android:text="@string/submits"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageView
+        android:id="@+id/imgsubmitsurvy"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_alignLeft="@+id/textViewlati"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="33dp"
+        android:src="@drawable/cloud" />
+
+</RelativeLayout>

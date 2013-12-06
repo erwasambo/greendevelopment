@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/imgjoseph"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/textView2"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/joseph" />
+
+    <ImageView
+        android:id="@+id/imgmary"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/textView5"
+        android:src="@drawable/mary" />
+
+    <ImageView
+        android:id="@+id/imganne"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:src="@drawable/joseph" />
+
+    <ImageView
+        android:id="@+id/imgolc"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/textView4"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/olc" />
+
+    <ImageView
+        android:id="@+id/imglourdel"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignTop="@+id/imgolc"
+        android:src="@drawable/lourdel" />
+
+    <ImageView
+        android:id="@+id/imgrenal"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/textView7"
+        android:layout_alignLeft="@+id/textView7"
+        android:src="@drawable/renal" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="36dp"
+        android:text="@string/renal"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView7"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_alignLeft="@+id/imgjoseph"
+        android:layout_marginLeft="16dp"
+        android:text="@string/olc"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgolc"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="28dp"
+        android:text="@string/stjoseph"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/imgrenal"
+        android:text="@string/stanne"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imgmccauley"
+        android:layout_below="@+id/imgmary"
+        android:text="@string/stmary"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgrenal"
+        android:layout_marginRight="43dp"
+        android:layout_toLeftOf="@+id/imgrenal"
+        android:text="@string/mccauley"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/imgmccauley"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/textView2"
+        android:layout_marginLeft="50dp"
+       
+        android:src="@drawable/mccauley" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignLeft="@+id/imglourdel"
+        android:text="@string/lourdel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

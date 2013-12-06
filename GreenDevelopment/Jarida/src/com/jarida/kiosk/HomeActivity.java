@@ -1,0 +1,390 @@
+/*
+ * Copyright 2013 Chris Banes
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.jarida.kiosk;
+
+import android.annotation.SuppressLint;
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
+import android.view.KeyEvent;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
+import android.widget.Toast;
+import android.widget.TextView;
+
+import com.slidinglayer.SlidingLayer;
+
+import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
+import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
+import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
+
+import com.example.jarida.R;
+import com.jarida.kiosk.StaggeredGridView;
+
+/**
+ * A sample which show you how to use PullToRefreshLayout with Fragments in a ViewPager.
+ */
+public class HomeActivity extends SherlockFragmentActivity {
+	
+	private SlidingLayer mSlidingLayer;
+    private ListView swipeList;
+
+    private String mStickContainerToRightLeftOrMiddle;
+    private boolean mShowShadow;
+    private boolean mShowOffset;
+	
+    private static final String[] songs = { "My Shelf", "Favorites", "Subscriptions", "My Account" };
+
+	private static String urls[] = { 
+			"http://kikosoftwareltd.com/jaridaimages/africanwoman.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/animal.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/bdaily1.JPG",
+			"http://kikosoftwareltd.com/jaridaimages/bdaily2.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/bdnjiraini.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/countyweekly.png",
+			"http://kikosoftwareltd.com/jaridaimages/dailynation1.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/dailynation2.JPG", 
+			"http://kikosoftwareltd.com/jaridaimages/drumemmy.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/drumoliech.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/drumwahu.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/exchange.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/managecar.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/manageissac.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/managemaggie.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/managemugenda.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/msafiri.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/msafiri79.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/msafirirudisha.png",
+			"http://kikosoftwareltd.com/jaridaimages/nationobama.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/nrblaw.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/nrblaw2.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/parents.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/parentstoday.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/people.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/pregnant.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/pregnantoct.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/pulse.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/pulseeee.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/salon.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/salon3.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/samantha.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/smartlife.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/smartlife2.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/smtfarmer.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/standardcovenant.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/star.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/taifabensuda.gif",
+			"http://kikosoftwareltd.com/jaridaimages/taifaleo.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/taifaleo2.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/thecitizen.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/thestarkenya.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/thestart.png",
+			"http://kikosoftwareltd.com/jaridaimages/trueajuma.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/truehellen.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/truejullie.gif",
+			"http://kikosoftwareltd.com/jaridaimages/truekobi.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/truelove.png",
+			"http://kikosoftwareltd.com/jaridaimages/zuqka.jpg",
+			"http://kikosoftwareltd.com/jaridaimages/zuqka2.png",
+			"http://kikosoftwareltd.com/jaridaimages/zuqkainside.png"
+
+	};
+
+    private static String EXTRA_TITLE = "extra_title";
+
+    private FragmentTabPager mFragmentTabPager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.home);
+        
+        getPrefs();
+        bindViews();
+        initState();
+
+        
+        ViewPager vp = (ViewPager) findViewById(R.id.ptr_viewpager);
+        mFragmentTabPager = new FragmentTabPager(this, vp);
+        
+        // Add 3 tabs which will switch fragments
+        ActionBar ab = getSupportActionBar();
+        
+        ab.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        Bundle b = new Bundle();
+        b.putString(EXTRA_TITLE, "All Categories");
+        mFragmentTabPager.addTab(ab.newTab().setText("All Categories"), SampleFragment.class, b);
+
+        b = new Bundle();
+        b.putString(EXTRA_TITLE, "Newspapers");
+        mFragmentTabPager.addTab(ab.newTab().setText("Newspapers"), SampleFragment.class, b);
+
+        b = new Bundle();
+        b.putString(EXTRA_TITLE, "Magazines");
+        mFragmentTabPager.addTab(ab.newTab().setText("Magazines"), SampleFragment.class, b);
+        
+        b = new Bundle();
+        b.putString(EXTRA_TITLE, "Top Paid");
+        mFragmentTabPager.addTab(ab.newTab().setText("Top Paid"), SampleFragment.class, b);
+
+        b = new Bundle();
+        b.putString(EXTRA_TITLE, "Top Free");
+        mFragmentTabPager.addTab(ab.newTab().setText("Top Free"), SampleFragment.class, b);
+        
+        b = new Bundle();
+        b.putString(EXTRA_TITLE, "Trending");
+        mFragmentTabPager.addTab(ab.newTab().setText("Trending"), SampleFragment.class, b);  
+    }
+
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getSupportMenuInflater().inflate(R.menu.actionbarmenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    
+    @Override 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_first:
+                //Toast.makeText(this, "First Action Item", Toast.LENGTH_SHORT).show();
+                //startActivity(new Intent(HomeActivity.this, PayPalActivity.class));
+                startActivity(new Intent(HomeActivity.this, ChoosePDFActivity.class));
+				return true;
+            case R.id.action_second:
+            	
+            	if (!mSlidingLayer.isOpened()) {
+                    mSlidingLayer.openLayer(true);
+                }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+        case KeyEvent.KEYCODE_BACK:
+            if (mSlidingLayer.isOpened()) {
+                mSlidingLayer.closeLayer(true);
+                return true;
+            }
+
+        default:
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+    
+    /**
+     * View binding
+     */
+    private void bindViews() {
+        mSlidingLayer = (SlidingLayer) findViewById(R.id.slidingLayer1);
+        swipeList = (ListView)findViewById(R.id.listViewmenu);
+        
+        swipeList.setAdapter(new BaseAdapter() {
+
+			@Override
+			public View getView(int position, View convertView, ViewGroup parent) {
+				if(convertView == null) {
+					convertView = getLayoutInflater().inflate(R.layout.listitem_menu, null);
+				}
+				((TextView) convertView).setText(getItem(position));
+				return convertView;
+			}
+
+			@Override
+			public long getItemId(int position) {
+				return songs[position].hashCode();
+			}
+
+			@Override
+			public String getItem(int position) {
+				return songs[position];
+			}
+
+			@Override
+			public int getCount() {
+				return songs.length;
+			}
+		});
+   
+    }
+
+    /**
+     * Get current value for preferences
+     */
+    private void getPrefs() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mStickContainerToRightLeftOrMiddle = prefs.getString("layer_location", "left");
+        mShowShadow = prefs.getBoolean("layer_has_shadow", true);
+        mShowOffset = prefs.getBoolean("layer_has_offset", false);
+    }
+
+    /**
+     * Initializes the origin state of the layer
+     */
+    private void initState() {
+    	mStickContainerToRightLeftOrMiddle.equals("left");
+        // Sticks container to right or left
+        LayoutParams rlp = (LayoutParams) mSlidingLayer.getLayoutParams();
+        int textResource;
+        Drawable d;
+
+        if (mStickContainerToRightLeftOrMiddle.equals("right")) {
+            textResource = R.string.swipe_right_label;
+            d = getResources().getDrawable(R.drawable.container_rocket_right);
+
+            rlp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        } else if (mStickContainerToRightLeftOrMiddle.equals("left")) {
+            textResource = R.string.swipe_left_label;
+            //d = getResources().getDrawable(R.drawable.container_rocket_left);
+
+            rlp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        } else if (mStickContainerToRightLeftOrMiddle.equals("top")) {
+            textResource = R.string.swipe_up_label;
+            d = getResources().getDrawable(R.drawable.container_rocket);
+
+            mSlidingLayer.setStickTo(SlidingLayer.STICK_TO_TOP);
+            rlp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            rlp.width = LayoutParams.MATCH_PARENT;
+            rlp.height = getResources().getDimensionPixelSize(R.dimen.layer_width);
+        } else if (mStickContainerToRightLeftOrMiddle.equals("bottom")) {
+            textResource = R.string.swipe_down_label;
+            d = getResources().getDrawable(R.drawable.container_rocket);
+
+            mSlidingLayer.setStickTo(SlidingLayer.STICK_TO_BOTTOM);
+            rlp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            rlp.width = LayoutParams.MATCH_PARENT;
+            rlp.height = getResources().getDimensionPixelSize(R.dimen.layer_width);
+        } else {
+            textResource = R.string.swipe_label;
+            d = getResources().getDrawable(R.drawable.container_rocket);
+
+            rlp.addRule(RelativeLayout.CENTER_IN_PARENT);
+            rlp.width = LayoutParams.MATCH_PARENT;
+        }
+
+        //d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
+        //swipeText.setCompoundDrawables(null, d, null, null);
+        //swipeText.setText(getResources().getString(textResource));
+        mSlidingLayer.setLayoutParams(rlp);
+
+        // Sets the shadow of the container
+        if (mShowShadow) {
+            mSlidingLayer.setShadowWidthRes(R.dimen.shadow_width);
+            mSlidingLayer.setShadowDrawable(R.drawable.sidebar_shadow);
+        } else {
+            mSlidingLayer.setShadowWidth(20);
+            mSlidingLayer.setShadowDrawable(null);
+        }
+        if(mShowOffset) {
+            mSlidingLayer.setOffsetWidth(getResources().getDimensionPixelOffset(R.dimen.offset_width));
+        } else {
+            mSlidingLayer.setOffsetWidth(0);
+        }
+    }
+    
+    /**
+     * Fragment Class
+     */
+    public static class SampleFragment extends SherlockFragment implements
+            OnRefreshListener {
+
+        private PullToRefreshLayout mPullToRefreshLayout;
+        
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+            // Inflate the layout
+            View view = inflater.inflate(R.layout.layout_fragment, container, false);
+
+            // Now give the find the PullToRefreshLayout and set it up
+            mPullToRefreshLayout = (PullToRefreshLayout) view.findViewById(R.id.ptr_layout);
+            ActionBarPullToRefresh.from(getActivity())
+                    .allChildrenArePullable()
+                    .listener(this)
+                    .setup(mPullToRefreshLayout);
+
+            // Set title in Fragment for display purposes.
+            StaggeredGridView gridView = (StaggeredGridView) view.findViewById(R.id.staggeredGridView1);
+            int margin = getResources().getDimensionPixelSize(R.dimen.margin);
+            
+            Bundle b = getArguments();
+            if (b != null) {
+            	
+            	gridView.setItemMargin(margin); // set the GridView margin
+        		
+        		gridView.setPadding(margin, 0, margin, 0); // have the margin on the sides as well 
+        		
+        		//StaggeredAdapter adapter = new StaggeredAdapter(getApplicationContext(), R.id.imageView1, urls);
+        		StaggeredAdapter adapter = new StaggeredAdapter(view.getContext(), margin, urls);
+        		
+        		gridView.setAdapter(adapter);
+        		adapter.notifyDataSetChanged();
+            }
+
+            return view;
+        }
+
+        @Override
+        public void onRefreshStarted(View view) {
+            /**
+             * Simulate Refresh with 4 seconds sleep
+             */
+            new AsyncTask<Void, Void, Void>() {
+
+                @Override
+                protected Void doInBackground(Void... params) {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Void result) {
+                    super.onPostExecute(result);
+
+                    // Notify PullToRefreshLayout that the refresh has finished
+                    mPullToRefreshLayout.setRefreshComplete();
+                }
+            }.execute();
+        }
+    }
+}
+

@@ -1,0 +1,67 @@
+package com.nas.cuisine;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+
+public class PatientDashActivity extends Activity{
+
+	ImageView imgjoseph;
+	ImageView imgmary;
+	ImageView imganne;
+	ImageView imgolc;
+	ImageView lourdel;
+	ImageView imgmccauley;
+	ImageView imgrenal;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.patientdash);
+		
+		
+		imgjoseph = (ImageView)findViewById(R.id.imgjoseph);
+		imgjoseph.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	
+	        	startActivity(new Intent(PatientDashActivity.this, HomeActivity.class));
+	        	
+	        }
+	    });
+		
+		imgmary = (ImageView)findViewById(R.id.imgmary);
+		imgmary.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	//startActivity(new Intent(DashboardActivity.this, HomeActivity.class));
+	        	Toast.makeText(getApplicationContext(), "Functionality comming soon", Toast.LENGTH_SHORT).show();
+	        }
+	    });
+		
+		imgstaff = (ImageView)findViewById(R.id.imgstaff);
+		imgstaff.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	//startActivity(new Intent(DashboardActivity.this, HomeActivity.class));
+	        	Toast.makeText(getApplicationContext(), "Functionality comming soon", Toast.LENGTH_SHORT).show();
+	        }
+	    });
+		
+		imgadmin = (ImageView)findViewById(R.id.imgadmin);
+		imgadmin.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	startActivity(new Intent(PatientDashActivity.this, AdminActivity.class));
+	        }
+	    });
+		
+	}
+
+}

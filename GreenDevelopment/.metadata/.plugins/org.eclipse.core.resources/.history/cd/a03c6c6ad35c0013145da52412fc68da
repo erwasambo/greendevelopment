@@ -1,0 +1,178 @@
+package com.nas.cuisine;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.annotation.SuppressLint;
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.drawable.Drawable;
+import android.view.KeyEvent;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
+import android.widget.Toast;
+import android.widget.TextView;
+
+import com.slidinglayer.SlidingLayer;
+import com.viewpagerindicator.TabPageIndicator;
+
+import com.nas.cuisine.TestFragment;
+import com.nas.cuisine.HomeActivity.GoogleMusicAdapter;
+
+import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
+import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
+import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
+
+public class PatientsFragment extends SherlockFragment implements OnRefreshListener{
+	
+	private SlidingLayer mSlidingLayer;
+    private ListView swipeList;
+
+    private String mStickContainerToRightLeftOrMiddle;
+    private boolean mShowShadow;
+    private boolean mShowOffset;
+    private DataBaseManager DatabaseHelper;
+    private static final String[] songs = { "Sync Data","My profile", "Settings", "Log out" };
+    private static String EXTRA_TITLE = "extra_title";
+    private FragmentTabPager mFragmentTabPager;
+    
+    
+    
+    private List<Meal> meals = new ArrayList<Meal>();
+    String id, mealname;
+
+    
+    
+    private static final String[] CONTENT = new String[] { "Bed 19", "Bed 20", "Bed 21", "Bed 22A", "Bed 22B", "Bed 22C","Bed 20", "Bed 21", "Bed 22A", "Bed 22B", "Bed 22C", "Bed 20", "Bed 21", "Bed 22A", "Bed 22B", "Bed 22C","Bed 20", "Bed 21", "Bed 22A", "Bed 22B", "Bed 22C" };
+
+	 @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+	 
+	 	//DatabaseHelper = DataBaseManager.instance();
+	 	
+	 	//updateMealsList();
+		//Meal themeal = new Meal("dfdf","dfdf", false);
+        meals.add(new Meal("dfdf","dfdf", false));
+
+	 	MealsArrayAdapter mealsadapter = new MealsArrayAdapter(ApplicationContextProvider.getContext(), R.layout.meallistview_item, meals);
+	 	
+        // Inflate the layout
+        View view = inflater.inflate(R.layout.layout_patients_fragment, container, false);
+        int margin = getResources().getDimensionPixelSize(R.dimen.margin);        
+        Bundle b = getArguments();
+        if (b != null) {      	
+        	//load data into the fragment children e.g. gridview
+        	
+        	
+        	 FragmentPagerAdapter adapter = new GoogleMusicAdapter(getFragmentManager());
+        	 
+        	 ViewPager  pager = (ViewPager) view.findViewById(R.id.pager);
+             pager.setAdapter(adapter);
+
+             TabPageIndicator indicator = (TabPageIndicator)view.findViewById(R.id.indicator);
+             indicator.setViewPager(pager);
+             
+             
+             ListView lv = (ListView)view.findViewById(R.id.mealslistView);
+             lv.setAdapter(mealsadapter);
+     		 lv.setClickable(true);
+     		 lv.setTextFilterEnabled(true);
+     		 lv.setFastScrollEnabled(true);
+     	
+             
+        }
+        return view;
+    }
+
+	
+	
+	
+	@Override
+	public void onRefreshStarted(View view) {
+		
+		
+	}
+	
+	
+	
+	public  class GoogleMusicAdapter extends FragmentPagerAdapter {
+        public  GoogleMusicAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return TestFragment.newInstance(CONTENT[position % CONTENT.length]);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return CONTENT[position % CONTENT.length].toUpperCase();
+        }
+
+        @Override
+        public int getCount() {
+          return CONTENT.length;
+        }
+    }
+	
+	
+	
+	private void updateMealsList() {
+		/*Cursor cursor = DatabaseHelper.select("SELECT * FROM meals");
+
+        if (cursor == null){
+            cursor.close();
+        }
+
+        while (cursor.moveToNext()){
+        	String respid =  cursor.getString(0);
+        	String respname =  cursor.getString(2);
+        	         	
+        	// Construct Response object
+            Meal themeal = new Meal(respid, respname, false);
+            meals.add(themeal);
+       }
+       cursor.close();
+       *
+       */
+        Meal themeal = new Meal("dfdf","dfdf", false);
+        meals.add(themeal);
+        
+        Meal themeal2 = new Meal("dfdf","fddf", false);
+        meals.add(themeal2);
+        
+        Meal themeal3 = new Meal("dfdf","dfdf", false);
+        meals.add(themeal3);
+
+	}
+	
+
+}
+

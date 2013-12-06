@@ -1,0 +1,26 @@
+1384759930386	Rename resource 'single_item.xml'
+1384760388283	Extracts string 'null' into R.string.respondent
+1384760411323	Rename field 'country_name'
+1384760436008	Rename field 'imageView1'
+1384760863455	Delete element
+1384980352323	Extracts string 'null' into R.string.submits
+1384980615082	Rename field 'imageView1'
+1384980634315	Rename field 'imageView2'
+1384980673509	Rename field 'imageView3'
+1384981080753	Delete element
+1384982661111	Delete element
+1384984031988	Extracts string 'null' into R.string.gps
+1384984360403	Rename field 'View01'
+1384984383402	Rename field 'TextView03'
+1384984614341	Extracts string 'null' into R.string.longitude
+1384984642457	Extracts string 'null' into R.string.latitude
+1384984993672	Extracts string 'null' into R.string.fetchgps
+1384985026168	Extracts string 'null' into R.string.gpsloc
+1384985926294	Rename field 'item_separator'
+1384986060030	Rename field 'View03'
+1384986098092	Rename field 'View02'
+1384986255150	Rename field 'TextView06'
+1384986282540	Rename field 'textView2'
+1384986311464	Rename field 'TextView02'
+1385143911282	Delete element
+1385206200257	Extracts string 'null' into R.string.delete

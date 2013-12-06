@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ptr_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:scrollbarStyle="outsideInset"
+         android:background="@color/purple">
+
+	    <RelativeLayout
+
+            android:layout_height="500dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@color/purple">
+			
+	        
+		    <com.viewpagerindicator.TabPageIndicator
+		        android:id="@+id/indicator"
+		        android:layout_height="30dp"
+		        android:layout_width="fill_parent"
+		        android:color="@color/black"
+		        />
+		    <android.support.v4.view.ViewPager
+		        android:id="@+id/pager"
+		        android:layout_width="fill_parent"
+		        android:layout_height="0dp"
+		        android:layout_weight="1"
+		        android:background="@color/white"
+		        />
+
+             <!-- Create and load listview
+             <com.nas.cuisine.StaggeredGridView
+		        android:id="@+id/staggeredGridView1"
+		         xmlns:staggered="http://schemas.android.com/apk/res-auto"
+		        staggered:numColumns="2"
+		        staggered:drawSelectorOnTop="true"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent" />   -->
+
+		    <TextView
+		        android:id="@+id/textView1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/indicator"
+		        android:layout_marginTop="51dp"
+		        android:text="@string/patname"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		    <EditText
+		        android:id="@+id/editText1"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/textView1"
+		        android:ems="10"
+		        android:inputType="textPersonName" >
+
+		        <requestFocus />
+		    </EditText>
+
+		    <TextView
+		        android:id="@+id/textView2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/editText1"
+		        android:text="@string/day"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		    <Spinner
+		        android:id="@+id/dayspinner"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/textView2" />
+
+		    <TextView
+		        android:id="@+id/textView3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/dayspinner"
+		        android:text="@string/diet"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		    <Spinner
+		        android:id="@+id/dietspinner1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/textView3"
+		        android:layout_marginTop="24dp" />
+
+		    <Button
+		        android:id="@+id/button1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentBottom="true"
+		        android:layout_alignParentRight="true"
+		        android:layout_marginRight="19dp"
+		        android:text="@string/submit" />
+
+		    <Button
+		        android:id="@+id/button2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentBottom="true"
+		        android:layout_marginRight="29dp"
+		        android:layout_toLeftOf="@+id/button1"
+		        android:text="@string/preview" />
+
+		    <Button
+		        android:id="@+id/button3"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_below="@+id/spinner1"
+		        android:textSize="15dp"
+		        android:color="@color/white"
+		        android:text="@string/break" />
+
+		    <Button
+		        android:id="@+id/button4"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignBaseline="@+id/button3"
+		        android:layout_alignBottom="@+id/button3"
+		        android:layout_toRightOf="@+id/button3"
+		        android:textSize="15dp"
+		        android:text="@string/snack" />
+
+		    <Button
+		        android:id="@+id/button5"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_below="@+id/spinner1"
+		        android:layout_toRightOf="@+id/button4"
+		        android:text="@string/lunch"
+		        android:textSize="15dp" />
+
+		    <Button
+		        android:id="@+id/button6"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignTop="@+id/button5"
+		        android:text="@string/dinner" />
+
+		    <ListView
+		        android:id="@+id/mealslistView"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_above="@+id/button1"
+		        android:layout_alignParentLeft="true" >
+		    </ListView>
+
+        </RelativeLayout>
+    </ScrollView>
+

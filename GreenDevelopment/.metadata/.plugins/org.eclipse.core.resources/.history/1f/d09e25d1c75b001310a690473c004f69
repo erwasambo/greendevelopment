@@ -1,0 +1,63 @@
+package com.nas.cuisine;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ImageView;
+
+
+public class DashboardActivity extends Activity{
+
+	ImageView imgpatients;
+	ImageView imgfunction;
+	ImageView imgstaff;
+	ImageView imgadmin;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.dashboard);
+		
+		
+		imgpatients = (ImageView)findViewById(R.id.imgpatients);
+		imgpatients.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	startActivity(new Intent("com.kiko.softwareltd.addgesture"));
+	        }
+	    });
+		
+		imgfunction = (ImageView)findViewById(R.id.imageView1);
+		imgfunction.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	startActivity(new Intent("com.kiko.softwareltd.addgesture"));
+	        }
+	    });
+		
+		imgstaff = (ImageView)findViewById(R.id.imageView1);
+		imgstaff.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	startActivity(new Intent("com.kiko.softwareltd.addgesture"));
+	        }
+	    });
+		
+		imgadmin = (ImageView)findViewById(R.id.imageView1);
+		imgadmin.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	        	startActivity(new Intent("com.kiko.softwareltd.addgesture"));
+	        }
+	    });
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

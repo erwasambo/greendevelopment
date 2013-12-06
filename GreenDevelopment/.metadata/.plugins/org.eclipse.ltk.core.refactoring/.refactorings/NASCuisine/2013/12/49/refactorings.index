@@ -1,0 +1,61 @@
+1386033689290	Rename type 'RegisterAccActivity'
+1386034594680	Extracts string 'null' into R.string.signup
+1386034935800	Extracts string 'null' into R.string.donthaveacc
+1386035212434	Rename field 'TextView01'
+1386036314331	Rename field 'Button01'
+1386036346945	Extracts string 'null' into R.string.forgotpwd
+1386036484695	Rename resource 'register.xml'
+1386036670953	Extracts string 'null' into R.string.firstname
+1386036699374	Extracts string 'null' into R.string.othernames
+1386036773609	Extracts string 'null' into R.string.staffno
+1386036872541	Extracts string 'null' into R.string.cnfpassword
+1386037010402	Extracts string 'null' into R.string.iagree
+1386037084906	Extracts string 'null' into R.string.termsofuse
+1386037878127	Extracts string 'null' into R.string.perosnstoserve
+1386037935559	Extracts string 'null' into R.string.patients
+1386037960018	Extracts string 'null' into R.string.func
+1386038059430	Extracts string 'null' into R.string.hospstaff
+1386038117816	Extracts string 'null' into R.string.admin
+1386039595255	Rename field 'imageView1'
+1386042314084	Extracts string 'null' into R.string.mealord
+1386042356837	Extracts string 'null' into R.string.drystore
+1386042417708	Extracts string 'null' into R.string.salessummary
+1386042478838	Extracts string 'null' into R.string.mealsum
+1386042568776	Extracts string 'null' into R.string.transf
+1386042624281	Extracts string 'null' into R.string.delivbook
+1386042672343	Extracts string 'null' into R.string.laundbook
+1386044653724	Extracts string 'null' into R.string.stjoseph
+1386044680869	Extracts string 'null' into R.string.stmary
+1386044705764	Extracts string 'null' into R.string.stanne
+1386044783393	Extracts string 'null' into R.string.olc
+1386044824216	Extracts string 'null' into R.string.lourdel
+1386044874161	Extracts string 'null' into R.string.mccauley
+1386044913913	Extracts string 'null' into R.string.renal
+1386045684555	Rename field 'imageView1'
+1386045694662	Rename field 'imageView2'
+1386045704591	Rename field 'imageView3'
+1386045713388	Rename field 'imageView4'
+1386045728434	Rename field 'imageView5'
+1386045746105	Rename field 'imageView6'
+1386045754741	Rename field 'imageView7'
+1386047292100	Extracts string 'null' into R.string.administration
+1386145710592	Extracts string 'null' into R.string.patname
+1386145765589	Extracts string 'null' into R.string.day
+1386146004774	Extracts string 'null' into R.string.diet
+1386146078915	Extracts string 'null' into R.string.submit
+1386146130275	Extracts string 'null' into R.string.preview
+1386146186511	Rename field 'spinner1'
+1386146523596	Extracts string 'null' into R.string.meal
+1386146573812	Rename resource 'managelistview_item.xml'
+1386147198025	Rename field 'listView1'
+1386147623111	Rename type 'ResponsesArrayAdapter'
+1386148229807	Rename type 'Response'
+1386151712066	Delete element
+1386153087756	Delete element
+1386159276984	Delete element
+1386161558482	Delete element
+1386164248968	Extracts string 'null' into R.string.break
+1386164288762	Extracts string 'null' into R.string.snack
+1386164336166	Extracts string 'null' into R.string.lunch
+1386164583898	Extracts string 'null' into R.string.dinner
+1386169535949	Rename field 'spinner1'

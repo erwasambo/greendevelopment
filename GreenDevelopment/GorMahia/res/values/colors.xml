@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="selector_poppyview_pressed">#9933cc</color>
+    <color name="selector_poppyview_default">#aa66cc</color>
+    
+    <color name="selector_button_pressed">#9933cc</color>
+    <color name="selector_button_default">#aa66cc</color>
+    <color name="lvHeaderTextColor">#168686</color>
+    <color name="primaryTextColor">#333333</color>
+    <color name="secondaryTextColor">#777777</color>
+
+    <color name="goblinGreen">#168686</color>
+    <color name="lvHeaderDividerColor">#168686</color>
+    <color name="lvDividerColor">#E0E0E0</color>
+    <color name="whiteColor">#FFFFFF</color>
+    <color name="gorColor">#1C6128</color>
+    <color name="darkergorColor">#113918</color>
+    <color name="background_window">#FFE5E5E5</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+</resources>
