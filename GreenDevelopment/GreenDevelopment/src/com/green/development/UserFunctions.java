@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class UserFunctions {
 	
     private JSONParser jsonParser;
-    private static String universalURL = "http://greendev.mbeguhalisi.com";
+    private static String universalURL = "http://greendevelopment.no/addresponse";
      
     private static String add_response = "add_response";
  

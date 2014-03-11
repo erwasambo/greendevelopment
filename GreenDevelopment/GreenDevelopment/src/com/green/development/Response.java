@@ -1,6 +1,12 @@
 package com.green.development;
 
-public class Response {
+import java.io.Serializable;
+
+
+public class Response implements Serializable{
+
+
+	private static final long serialVersionUID = 1L;
 	public String id = null; 
 	public String name = null; 
 	public String address = null; 
@@ -15,7 +21,7 @@ public class Response {
 	boolean selected  = false;
 
      public Response(){
-             // TODO Auto-generated constructor stub
+            
      }
 
      public Response(String id, String name, String address, String phone, String resourceFilePath,  String organization, 
@@ -32,8 +38,9 @@ public class Response {
 		 this.biogas = biogas;
 		 this.purwater = purwater;
 		 this.selected = selected;
+		 
      }
-
+     
      public boolean isSelected(){
     	 return selected;
      }
@@ -45,4 +52,5 @@ public class Response {
      public String toString(){
              return this.name;
      }
+          
 }

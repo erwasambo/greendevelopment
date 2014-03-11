@@ -70,6 +70,9 @@ public class ResponsesArrayAdapter extends ArrayAdapter<Response> {
         }
         
         
+		
+		
+		
         // Get item
         Response response = responses.get(position);
 

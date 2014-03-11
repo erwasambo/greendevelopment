@@ -12,12 +12,14 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -27,17 +29,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-
 import android.widget.Toast;
-
-
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-
-
-
-import android.widget.CompoundButton;
-
 import de.ankri.views.Switch;
 
 @SuppressLint("NewApi")
@@ -56,7 +48,7 @@ public class SurveyActivity extends Activity {
 		private byte[] data2=null;
 		Cursor cursor;
 
-        GPSTracker gps = new GPSTracker (SurveyActivity.this);
+       
         SQLiteDatabase myDataBase;
 
         
@@ -68,10 +60,22 @@ public class SurveyActivity extends Activity {
         final String lexicon = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345674890";
         final java.util.Random rand = new java.util.Random();
         final Set<String> identifiers = new HashSet<String>();
+        
+        private static final String PREF_NAME = "SwitchButtonDemo";
+    	private static final String PREF_THEME = "isDark";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         
+    	
+			SharedPreferences preferences = this.getSharedPreferences(PREF_NAME, 0);
+			boolean isDark = preferences.getBoolean(PREF_THEME, false);
+    	
+			if (isDark)
+				this.setTheme(R.style.AppThemeDark);
+			else
+				this.setTheme(R.style.AppThemeLight);
+			
             super.onCreate(savedInstanceState);
 			setContentView(R.layout.survey);
 			DatabaseHelpers = DataBaseManager.instance();
@@ -116,16 +120,54 @@ public class SurveyActivity extends Activity {
 			signature.setOnClickListener(new View.OnClickListener() {
 							
 					@Override
-					public void onClick(View v) {                
+					public void onClick(View v) { 
+						
+				        
+				        String yesnoethanol = null;
+				        
+				        String yesnobiogas = null;
+				         
+				        String yesnopurwater = null;
+				        
+				         if(String.valueOf(ethanol.isChecked()) == "true"){
+				             yesnoethanol = "Yes";
+				         }else if(String.valueOf(ethanol.isChecked()) == "false"){
+				             yesnoethanol = "No";
+				         }
+				        
+				         if(String.valueOf(biogas.isChecked()) == "true"){
+				             yesnobiogas = "Yes";
+				         }else if(String.valueOf(biogas.isChecked()) == "false"){
+				             yesnobiogas = "No";
+				         }
+				        
+				         if(String.valueOf(purwater.isChecked()) == "true"){
+				             yesnopurwater = "Yes";
+				         }else if(String.valueOf(purwater.isChecked()) == "false"){
+				             yesnopurwater = "No";
+				         }
+				         
+						
 						 String dbfullname = fullname.getText().toString();
 						 String dbaddress = address.getText().toString();
 						 String dbphone = phone.getText().toString();
 						 String dborganization = organization.getText().toString();
 						 String dbpersonresp = personresp.getText().toString();
 						 String dbprojarea = projarea.getSelectedItem().toString();
-						 String dbethanol = String.valueOf(ethanol.isChecked());
-						 String dbbiogas = String.valueOf(biogas.isChecked());
-						 String dbpurwater = String.valueOf(purwater.isChecked());
+						 String dbethanol = yesnoethanol;
+						 String dbbiogas = yesnobiogas;
+						 String dbpurwater = yesnopurwater;
+						 
+						 String dbprojareafinal = dbprojarea;
+						 /*String dbprojareafinal = null;
+						 if (dbprojarea.contains(" - ")){
+							 int theindex =  dbprojarea.indexOf(" - ", 2)+2;
+							 dbprojareafinal = dbprojarea.substring(theindex);
+						 }else {
+							 dbprojareafinal = dbprojarea;
+						 }*/
+
+						 
 					 if(dbfullname.isEmpty()|| dbaddress.isEmpty()|| dbphone.isEmpty() || dborganization.isEmpty() || dbpersonresp.isEmpty() || dbprojarea.isEmpty()){
 							 Toast.makeText(getApplicationContext(), "Please Fill All Fields Before Proceeding", Toast.LENGTH_SHORT).show();
 					 }else{
@@ -138,7 +180,7 @@ public class SurveyActivity extends Activity {
 							surveyvalues.put("SDPicPathName", filename);
 							surveyvalues.put("Organization", dborganization);
 							surveyvalues.put("PersfillingForm", dbpersonresp);
-							surveyvalues.put("CDMProjectArea", dbprojarea);
+							surveyvalues.put("CDMProjectArea", dbprojareafinal);
 							surveyvalues.put("EthanolStv", dbethanol);
 							surveyvalues.put("BiogasStv", dbbiogas);
 							surveyvalues.put("PurifiedWat", dbpurwater);
@@ -156,6 +198,10 @@ public class SurveyActivity extends Activity {
 									@Override
 									public void onAnimationEnd( Animation animation ){
 											signature.setVisibility( View.INVISIBLE );
+											
+											SavePrefs(organization.getText().toString(), personresp.getText().toString(), projarea.getSelectedItem().toString());
+											
+											
 											finish();
 											startActivity( new Intent( SurveyActivity.this, SurveySuccessActivity.class ) );
 											overridePendingTransition( R.anim.slide_in_left, R.anim.slide_out_left );
@@ -169,14 +215,57 @@ public class SurveyActivity extends Activity {
 			});
     }
 
-    private void updateProjectAreas() {
-        Cursor cursor = DatabaseHelpers.select("SELECT CDMProjectArea FROM Area");
+    @Override
+	protected void onResume() {
+		
+		super.onResume();
+		
+		GetSharedPrefs();
+	}
+
+    
+    public void SavePrefs(String organization, String personresp, String projarea) {
+		SharedPreferences MYPREFS = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor editor = MYPREFS.edit();
+		editor.putString("Organization", organization);
+		editor.putString("Personresp", personresp);
+		editor.putString("Area", projarea);
+		editor.commit();
+	}
+    
+    public void GetSharedPrefs() {
+		SharedPreferences MYPREFS = PreferenceManager
+				.getDefaultSharedPreferences(this);
+		String prefOrganization = MYPREFS.getString("Organization", "");
+		String prefPersonresp = MYPREFS.getString("Personresp", "");
+		String prefArea = MYPREFS.getString("Area", "");
+
+		organization.setText(prefOrganization);
+		personresp.setText(prefPersonresp);
+		projarea.setSelection(projectareas.indexOf(prefArea));
+
+	}
+    
+    
+    
+	private void updateProjectAreas() {
+        Cursor cursor = DatabaseHelpers.select("SELECT CDMProjectArea, Country FROM Area");
 		if (cursor == null){
 			cursor.close();
 		}
 		while (cursor.moveToNext()){
-				String s = cursor.getString(0);
-				projectareas.add(s);
+				String area = cursor.getString(0);
+				String country = cursor.getString(1);
+				String finalarea = null;
+				
+				if (area.equals(country)){
+					finalarea = area;
+				}else{
+					finalarea = country+" - "+area;
+				}
+						
+				projectareas.add(finalarea);
 		}
 		cursor.close();
     }

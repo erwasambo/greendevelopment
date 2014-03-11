@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.green.development"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="5"
+    android:versionName="1.2" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -25,85 +25,75 @@
         android:name=".ApplicationContextProvider"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppBaseTheme" >
+        android:theme="@style/AppThemeLight" >
+
         <activity
-            android:name=".TestSwitchActivity"
-            android:label="@string/app_name">
-            <intent-filter>
+            android:name=".SplashscreenActivity"
+            android:label="@string/app_name" >
+           
+        </activity>
+        <activity
+            android:name=".UserConfigActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/app_name" >
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             
         </activity>
-        
-        <!-- <activity
-            android:name=".SplashscreenActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            
-        </activity>-->
-        
-        
-		<activity
-            android:name=".UserConfigActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="com.green.development.usercofig" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-                       
-      </activity>
-		
-  
-	<activity
-            android:name=".HomeActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="com.green.development.home" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-                       
-      </activity>
-      	<activity
+        <activity
             android:name=".SurveyActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="com.green.development.survey" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-                       
-      </activity>
-      
-      	<activity
+            android:screenOrientation="portrait" >
+        </activity> 
+        
+        <activity
+            android:name=".EditSurveyActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        
+        <activity
             android:name=".SurveySuccessActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="com.green.development.surveysuccess" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-                       
-      </activity>
+            android:label="@string/app_name" >
+        </activity>
       
       <activity
             android:name=".ManageSurveysActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="com.green.development.managesurveys" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-                       
+            android:label="@string/app_name"> 
       </activity>
+
+	 <activity
+            android:name=".SurveyEditSuccessActivity"
+            android:label="@string/app_name"> 
+      </activity>
+      
+	 
+	  <activity
+            android:name=".TranspDialogActivity"
+            android:theme="@style/Theme.Transparent"
+            android:label="@string/app_name"> 
+      </activity>
+      
+	 
+	 	<!--  <receiver
+            android:name="com.green.development.ResponseReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.example.jarida" />
+            </intent-filter>
+        </receiver>-->
+	 
+	 	<service android:name="com.green.development.SubmitionsIntentService" />
+	 
 
     </application>
 

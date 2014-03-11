@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -33,10 +34,21 @@ public class UserConfigActivity extends Activity{
 	private ArrayList<String> projectareas = new ArrayList<String>();
 	private ArrayList<String> preloadeddatadb = new ArrayList<String>();
 	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		
-		super.onCreate(savedInstanceState);
+	private static final String PREF_NAME = "SwitchButtonDemo";
+ 	private static final String PREF_THEME = "isDark";
+ 	
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	
+    	SharedPreferences preferences = this.getSharedPreferences(PREF_NAME, 0);
+    	boolean isDark = preferences.getBoolean(PREF_THEME, false);
+
+    	if (isDark)
+    		this.setTheme(R.style.AppThemeDark);
+    	else
+    		this.setTheme(R.style.AppThemeLight);
+    	super.onCreate(savedInstanceState);
 		setContentView(R.layout.usercofig);
 		
 		DatabaseHelpers = DataBaseManager.instance();

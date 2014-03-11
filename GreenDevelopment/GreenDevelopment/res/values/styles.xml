@@ -1,4 +1,13 @@
 <resources>
+    
+    <style name="Theme.Transparent" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/whiteColor</item>
+        <item name="android:windowNoTitle">true</item>
+
+    </style>
+    
+    
     <style name="AppBaseTheme" parent="android:Theme.Light">
     </style>
 
@@ -53,6 +62,14 @@
         <item name="android:layout_width">@dimen/lvItemHeight</item>
         <item name="android:layout_height">@dimen/lvItemHeight</item>
         <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="TextAppearance">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColorHighlight">?android:attr/textColorHighlight</item>
+        <item name="android:textColorHint">?android:attr/textColorHint</item>
+        <item name="android:textColorLink">?android:attr/textColorLink</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>

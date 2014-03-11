@@ -1,10 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
+        android:id="@+id/editmnitem"
+        android:orderInCategory="150"
+        android:showAsAction="never"
+        android:title="@string/edit"/>
+    
+    <item
         android:id="@+id/deletemnitem"
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/delete"/>
-    <item android:id="@+id/submitmnitem" android:title="@string/submit" android:orderInCategory="23"></item>
+    <item
+        android:id="@+id/submitmnitem"
+        android:orderInCategory="23"
+        android:title="@string/submit">
+    </item>
 
 </menu>

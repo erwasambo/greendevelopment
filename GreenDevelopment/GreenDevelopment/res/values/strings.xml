@@ -39,7 +39,8 @@
     <string name="termone">1. The equipment supplied is provided as part of a CDM Program and that the household is a Project Participating household under the \"POA for the Reduction of emission from non-renewable fuel from cooking household level\" and that the equipment and solutions provided is subsidized with the income from the carbon credits generated.</string>
     <string name="termtwo">2. The carbon credits generated from the solutions belong to Green Development AS.</string>
     <string name="termthree">3. The household is not part of any other program or project in which carbon credits are generated for the same solutions as provided through this program.</string>
-    <string name="termfour">4.  Prior to receiving the equipmet or solutions reffered to in this contract, the household where using woody biomass  for cooking and boiling their drinking water. Without the provided equipment and solutions, the household would have continued to use woody biomass as cooking fuel and would have continued to boil their drinking water.</string>
+    <string name="termfour">4. Prior to receiving the equipment or solutions referred to in this contract, the household has been using woody biomass for cooking and would have continued to do so without the carbon credit program. </string>
+    <string name="termfive">5. Households that get purified water as part of this program, confirm that they have been boiling their water prior to receiving the purified water as part of this program and that they would have continued to do so in the absence of the carbon credit program. </string> 
     <string name="takesurvey">Take Survey</string>
     <string name="submit">Submit</string>
     <string name="cd">Content Description</string>
@@ -64,4 +65,15 @@
     <string name="fetchgps">Fetch GPS</string>
     <string name="gpsloc">Global Positioning System</string>
     <string name="delete">Delete</string>
+    <string name="disabled">disabled</string>
+    <string name="light_bulb">This should be a light bulb!</string>
+    <string name="custom">Custom switch texts:</string>
+    <string name="light">The light is: </string>
+    <string name="textOn">Yes</string>
+    <string name="textOff">No</string>
+     <string name="edit">Edit</string>
+    <string name="pending">No Pending Survey(s) Found</string>
+    <string name="upload_success">Responses successfully recorded in the cloud</string>
+    
+    
 </resources>

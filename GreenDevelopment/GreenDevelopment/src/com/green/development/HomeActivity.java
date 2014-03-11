@@ -2,6 +2,7 @@ package com.green.development;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -13,9 +14,21 @@ public class HomeActivity extends Activity {
 	ImageView takesurv;
 	ImageView sbmtsurveys;
 	ImageView userconfig;
-		
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	private static final String PREF_NAME = "SwitchButtonDemo";
+ 	private static final String PREF_THEME = "isDark";
+ 	
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	
+    	SharedPreferences preferences = this.getSharedPreferences(PREF_NAME, 0);
+    	boolean isDark = preferences.getBoolean(PREF_THEME, false);
+
+    	if (isDark)
+    		this.setTheme(R.style.AppThemeDark);
+    	else
+    		this.setTheme(R.style.AppThemeLight);
+    	
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 		takesurv = (ImageView)findViewById(R.id.imgtakesrvy);
